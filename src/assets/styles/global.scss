@@ -1,5 +1,7 @@
 @import './projectsStyles/main.scss';
 @import './projectsStyles/nav.scss';
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 //@import 'menu';
 //@import 'locHours';
 //@import 'variables';
@@ -12,13 +14,14 @@
 
 html {
     height: 100%;
-    background-color: #975c19;
     //overflow-y:hidden;
 }
 
 body {
     height: 100%;
     //overflow-y:hidden;
+    font-family: 'Roboto', sans-serif;
+    
     
 }
 .root {
