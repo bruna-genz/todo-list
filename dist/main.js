@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\nexports = ___CSS_LOADER_API_IMPORT___(false);\n// Module\nexports.push([module.i, \"* {\\n  margin: 0;\\n  padding: 0;\\n  box-sizing: border-box;\\n}\\n\\nhtml {\\n  height: 100%;\\n  background-color: #975c19;\\n}\\n\\nbody {\\n  height: 100%;\\n}\\n\\n.root {\\n  height: 100%;\\n}\", \"\"]);\n// Exports\nmodule.exports = exports;\n\n\n//# sourceURL=webpack:///./src/assets/styles/global.scss?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
+eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\nexports = ___CSS_LOADER_API_IMPORT___(false);\n// Module\nexports.push([module.i, \"nav {\\n  --navColor: #026AA7;\\n  background-color: var(--navColor);\\n  display: flex;\\n  justify-content: space-between;\\n}\\nnav div {\\n  display: flex;\\n  align-items: center;\\n}\\nnav div div {\\n  background-color: rgba(255, 255, 255, 0.55);\\n  padding: 7px;\\n  margin: 2px;\\n  border-radius: 2px;\\n}\\nnav div div p, nav div div h1 {\\n  margin-left: 5px;\\n}\\nnav div div input {\\n  background-color: rgba(255, 255, 255, 0);\\n  border: none;\\n}\\nnav div img {\\n  height: 20px;\\n  width: 20px;\\n  fill: white;\\n  filter: invert(1);\\n}\\n\\n.secondary-nav {\\n  --navColor: #458131;\\n}\\n\\n* {\\n  margin: 0;\\n  padding: 0;\\n  box-sizing: border-box;\\n}\\n\\nhtml {\\n  height: 100%;\\n  background-color: #975c19;\\n}\\n\\nbody {\\n  height: 100%;\\n}\\n\\n.root {\\n  height: 100%;\\n}\", \"\"]);\n// Exports\nmodule.exports = exports;\n\n\n//# sourceURL=webpack:///./src/assets/styles/global.scss?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -140,7 +140,7 @@ eval("var api = __webpack_require__(/*! ../../../node_modules/style-loader/dist/
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _assets_styles_global_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/styles/global.scss */ \"./src/assets/styles/global.scss\");\n/* harmony import */ var _assets_styles_global_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_assets_styles_global_scss__WEBPACK_IMPORTED_MODULE_0__);\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _assets_styles_global_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/styles/global.scss */ \"./src/assets/styles/global.scss\");\n/* harmony import */ var _assets_styles_global_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_assets_styles_global_scss__WEBPACK_IMPORTED_MODULE_0__);\n\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 

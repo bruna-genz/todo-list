@@ -1,0 +1,33 @@
+nav {
+    --navColor: #026AA7; 
+    background-color: var(--navColor);
+    display: flex;
+    justify-content: space-between;
+    div {
+        display: flex;
+        align-items: center;
+        div {
+            background-color: rgba(255, 255, 255, 0.55);
+            padding: 7px;
+            margin: 2px;
+            border-radius: 2px;
+            p, h1 {
+                margin-left: 5px;
+            }
+            input {
+                background-color: rgba(255, 255, 255, 0);
+                border: none;
+            }
+        }
+        img {
+            height: 20px;
+            width: 20px;
+            fill: white;
+            filter: invert(1);
+        }
+    }
+}
+
+.secondary-nav {
+    --navColor: #458131;
+}
