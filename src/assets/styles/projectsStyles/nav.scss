@@ -3,7 +3,7 @@ nav {
     background-color: var(--navColor);
     display: flex;
     justify-content: space-between;
-    height: 8%;
+    height: 6%;
     div {
         display: flex;
         align-items: center;
@@ -58,5 +58,5 @@ nav {
 }
 
 .secondary-nav {
-    --navColor: #458131;
+    --navColor: #40a35b;
 }

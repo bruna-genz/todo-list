@@ -6,7 +6,7 @@
     <title>SuperToDo</title>
 </head>
 <body>
-    <nav>
+    <nav class="secondary-nav">
         <div>
             <div><img src="../src/assets/images/grid.svg" alt="menu icon" class="nav-icon"></div>
             <div><img src="../src/assets/images/home-run.svg" alt="home icon"></div>
@@ -24,36 +24,31 @@
         </div>
     </nav>
     <div class="root">
-        <main>
-            <aside>
-                <div class="index">
-                    <div id="aside-active"><img src="../src/assets/images/to-do-list.svg" alt="list icon">Boards</div>
-                    <div><img src="../src/assets/images/to-do-list.svg" alt="list icon">plantillas</div>
-                    <div><img src="../src/assets/images/to-do-list.svg" alt="list icon">inicio</div>
+       <div class="to-dos">
+           <div id="sub-nav">
+               <div>
+                   <div id="title">asdfbasdkjbasd</div>
+                   <div><img src="../src/assets/images/plus.svg" alt=""></div>
+                   <div>Personal</div>
+                   <div><img src="../src/assets/images/plus.svg" alt="">Público</div>
+                   <div><img src="../src/assets/images/user.svg" alt=""></div>
+                   <div>Invitar</div>
+               </div>
+               <div>
+                   <div><img src="../src/assets/images/bell.svg" alt="">Buttler</div>
+                   <div><img src="../src/assets/images/grid.svg" alt="">Show menu</div>
+               </div>
+           </div>
+           <div id="list-container">
+                <div id="list">
+                    <div class="items"></div>
+                    <div class="items"></div>
+                    <div class="items"></div>
+                    <button id="add-item"></button>
                 </div>
-                <div class="teams">
-                    <h2>TEAMS</h2>
-                    <button><img src="../src/assets/images/plus.svg" alt="list icon">Create a Team</button>
-                </div>
-            </aside>
-            <div class="boards">
-                <h1><img src="../src/assets/images/user.svg" alt="user icon">Personal Boards</h1>
-
-                <div class="my-boards">
-                    <div class="tests">Learn maths with python</div>
-                    <div class="tests">Learn maths with python</div>
-                    <div class="tests">Learn maths with python</div>
-                    <div class="tests">Learn maths with python</div>
-                    <div class="tests">Learn maths with python</div>
-                    <div class="tests">Learn maths with python</div>
-                    <div class="tests">Learn maths with python</div>
-                    <div class="tests">Learn maths with python</div>
-                    <div class="tests">Learn maths with python</div>
-                    <div class="tests">Learn maths with python</div>
-                    <a class="add-board">Create a new board</a>
-                </div>
-            </div>
-        </main>
+                <button id="add-list"></button>
+           </div>
+       </div>
     </div>
 
     <script src="main.js"></script>

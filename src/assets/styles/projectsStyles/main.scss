@@ -1,5 +1,6 @@
 main {
-    width: 80%;
+    
+    width: 90%;
     display: flex;
     justify-content: center;
     margin: 2% auto;
@@ -14,11 +15,39 @@ main {
             font-weight: bold;
             padding: 10px;
             color: #172b4d;
+            &:hover {
+                cursor: pointer;
+                background-color: rgba(228, 228, 228, 0.822);
+                border-radius: 4px;
+            }
+            }
+        }
+        .teams {
+            padding: 10%;
+            h2 {
+                font-size: 13px;
+                color: gray;
+                margin-bottom: 10px;
+               
+            }
+            button {
+                border: none;
+                display: flex;
+                width: 100%;
+                padding: 6px 0;
+                background-color: rgba(255, 255, 255, 0);
+                color: #172b4d;
+                &:hover {
+                    cursor: pointer;
+                    background-color: rgba(228, 228, 228, 0.822);
+                    border-radius: 4px;
+                }
             }
         }
         #aside-active {
             background-color: #E4F0F6;
             color: #3394cb;
+            border-radius: 4px;
             img {
                 filter: invert(73%) sepia(89%) saturate(3952%) hue-rotate(173deg) brightness(87%) contrast(80%);
             }
@@ -34,15 +63,27 @@ main {
         width: 60%;
         display: flex;
         flex-direction: column;
+        #personal-board {
+            font-size: 16px;
+            display: flex;
+            margin-bottom: 10px;
+            img {
+                width: 20px;
+                height: 20px;
+            }
+        }
         .my-boards {
             display: flex;
             flex-wrap: wrap;
             div,a {
                 background-color: #40a35b;
-                width: 21%;
-                height: 6em;
+                width: 22%;
+                height: 5em;
                 margin: 8px;
                 border-radius: 4px;
+                color: white;
+                padding: 7px;
+                font-weight: bold;
             }
         } 
     }
