@@ -21,6 +21,10 @@
   },
   "homepage": "https://github.com/bruna-genz/todo-list#readme",
   "devDependencies": {
+    "css-loader": "^3.5.2",
+    "sass": "^1.26.3",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.1.3",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
