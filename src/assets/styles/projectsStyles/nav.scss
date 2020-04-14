@@ -3,6 +3,7 @@ nav {
     background-color: var(--navColor);
     display: flex;
     justify-content: space-between;
+    height: 8%;
     div {
         display: flex;
         align-items: center;
@@ -47,7 +48,7 @@ nav {
             position: relative;
             left: -60%;
             img {
-                filter: invert(.7);
+                filter: invert(86%) sepia(8%) saturate(7%) hue-rotate(46deg) brightness(100%) contrast(96%);
             }
             
             

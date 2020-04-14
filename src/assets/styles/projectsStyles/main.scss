@@ -1,24 +1,50 @@
 main {
+    width: 80%;
     display: flex;
-    justify-content: space-evenly;
-    margin: 2% 0;
+    justify-content: center;
+    margin: 2% auto;
+    aside {
+        width: 17%;
+        margin-right: 10px;
+        .index {
+            font-size: 14px;
+            padding: 0 5%;
+            div {
+            display: flex;
+            font-weight: bold;
+            padding: 10px;
+            color: #172b4d;
+            }
+        }
+        #aside-active {
+            background-color: #E4F0F6;
+            color: #3394cb;
+            img {
+                filter: invert(73%) sepia(89%) saturate(3952%) hue-rotate(173deg) brightness(87%) contrast(80%);
+            }
+        }
+    }
     img {
-        width: 18px;
-        height: 18px;
+        width: 13px;
+        height: 13px;
+        filter: invert(10%) sepia(58%) saturate(1889%) hue-rotate(198deg) brightness(94%) contrast(88%);
+        margin-right: 10px;
     }
     .boards {
+        width: 60%;
         display: flex;
         flex-direction: column;
         .my-boards {
-            background-color: #40a35b;
+            display: flex;
+            flex-wrap: wrap;
             div,a {
-                width: 40px;
-                height: 40px;
-                margin: 4px;
+                background-color: #40a35b;
+                width: 21%;
+                height: 6em;
+                margin: 8px;
+                border-radius: 4px;
             }
-        }
-            
-            
-        
+        } 
     }
 }
+
