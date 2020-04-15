@@ -84,8 +84,21 @@ main {
                 color: white;
                 padding: 7px;
                 font-weight: bold;
+                &:hover {
+                    background-color: #338148;
+                    cursor: pointer;
+                }
             }
-        } 
+            .add-board {
+                background-color: #f0f2f5;
+                color: rgb(150, 147, 147);
+                &:hover {
+                    background-color: #e7e9ed;
+                    
+                }
+            }
+        }
+        
     }
 }
 
