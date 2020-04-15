@@ -42,21 +42,70 @@
         display: flex;
         overflow: auto;
         white-space: nowrap;
+        #add-list {
+            padding: 7px;
+            border-radius: 5px;
+            margin: 5px 7px;
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.445);
+            border: none;
+
+            p {
+                
+                padding: 7px;
+                width: 12em;
+                color: white;
+            }
+            &:hover {
+                cursor: pointer;
+                background-color: rgba(255, 255, 255, 0.664); 
+            }
+        }
         .list {
-            margin: 1em;
+            margin: 4px;
             background-color: #ebecf0;
             border-radius: 5px;
+            //overflow-y: scroll;
+            max-height: 95%;
+            
+            
+            width: auto;
+            
             h1 {
                 margin: 10px;
+                font-size: 13px;
             }
-            .items {
-                width: 15em;
-                margin: 5px 7px;
-                padding: 7px;
-                background-color: white;
-                border-radius: 5px;
-                border-bottom: 1px solid rgb(100, 98, 98);
+            .items-container {
+                overflow-x: auto;
+                max-height: 25em;
+                &::-webkit-scrollbar {
+                    width: 9px; 
+                }         
+                &::-webkit-scrollbar-track {
+                    background-color: rgb(209, 209, 209);
+                    margin: 0 1em;
+                    border-radius: 10px;
+                }
+                &::-webkit-scrollbar-thumb {
+                    background-color: rgb(173, 173, 173);
+                    border-radius: 10px;   
+                }
+                .items {
+                    width: 95%;
+                    margin: 5px 7px;
+                    padding: 7px;
+                    background-color: white;
+                    border-radius: 5px;
+                    border-bottom: 1px solid rgb(100, 98, 98);
+                    font-size: 13px;
+                    
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
             }
+            
             .add-item {
                 border: none;
                 background-color: #ebecf0;
@@ -68,6 +117,7 @@
                 color: rgb(116, 114, 114);
                 padding: 5px;
                 border-radius: 5px;
+                font-size: 13px;
                 &:hover {
                     background-color: #d2d2d8;
                     cursor: pointer;
@@ -92,7 +142,9 @@
             background-color: rgba(255, 255, 255, 0.589);
             border-radius: 10px;   
         }
+        
     }
+    
 
 }
 
