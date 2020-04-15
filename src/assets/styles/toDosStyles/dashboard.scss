@@ -33,5 +33,35 @@
             }
         }
     }
+
+    /* LISTS */
+    
+    #list-container {
+        display: flex;
+        overflow: auto;
+        white-space: nowrap;
+        height: 85%;
+        .list {
+            width: 10%;
+            margin: 2em;
+            background-color: #ebecf0;
+            .items {
+
+            }
+        }
+        &::-webkit-scrollbar {
+            height: 9px; 
+        }         
+        &::-webkit-scrollbar-track {
+            background-color: rgba(0, 0, 0, 0.212);
+            margin: 0 1em;
+            border-radius: 10px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, 0.589);
+            border-radius: 10px;   
+        }
+    }
+
 }
 
