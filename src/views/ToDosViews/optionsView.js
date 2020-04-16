@@ -1,5 +1,5 @@
 export const optionsView = `
-<div id="dark-background">
+<div class="dark-background">
         <div id="item-options">
             <div id="left-options">
                 <div id="item-title">

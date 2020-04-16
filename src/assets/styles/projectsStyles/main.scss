@@ -1,5 +1,4 @@
 main {
-    
     width: 90%;
     display: flex;
     justify-content: center;
@@ -99,6 +98,36 @@ main {
             }
         }
         
+    }
+}
+
+
+/*   NEW PROJECT FORM   */
+
+#new-project {
+    color: #53617b;
+    background-color:  #40a35b;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 35%;
+    left: 38%;
+    padding: .6em;
+    width: 30%;
+    animation: slide 2s ease; 
+    @keyframes slide { 0% { transform: translate(0, 20px); } 100% { transform: translate(0, 0); } }
+    input {
+        border: none;
+        width: 100%;
+        padding: 10px;
+        background-color: #f4f5f77a;
+        color: white;
+        font-size: 20px;
+        &::placeholder {
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
     }
 }
 
