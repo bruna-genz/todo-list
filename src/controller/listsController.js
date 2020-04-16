@@ -4,6 +4,7 @@ root.addEventListener('click',(e)=>{
     if (e.target.matches('#add-list, #add-list *')) {
         
         const addListBtn = document.querySelector()
+
+        //render new list form
     }
 })
-//  

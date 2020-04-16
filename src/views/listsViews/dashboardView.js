@@ -35,14 +35,21 @@ export const dashboardView = (currentProject) => {
              <div class="items">asdfasdf</div>
          </div>    
          <button class="add-item">
-             <img src="../src/assets/images/plus.svg" alt="">
-             <p>Add Item</p>
+            <img src="../src/assets/images/plus.svg" alt=""> 
+            <p>Add Item</p> 
          </button>
      </div>
      
      <button id="add-list">
-         <img src="../src/assets/images/plus.svg" alt="">
-             <p>Add list</p>
+        <!-- <img src="../src/assets/images/plus.svg" alt="">
+             <p>Add list</p> -->
+             <form id="new-list">
+                <input type="text" id="title" name="title" placeholder="Add list title"><br><br>
+                <div>
+                    <input type="submit">
+                    <img id="close-icon" src="../src/assets/images/close.svg" alt="">
+                </div>
+         </form>
      </button>
 </div>
 </div>

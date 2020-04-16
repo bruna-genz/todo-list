@@ -2,7 +2,7 @@ import '../assets/styles/global.scss';
 import * as configRoutes from '../routes/routesConfig';
 import navView from '../views/projectsViews/navView'
 import mainView from '../views/projectsViews/mainView'
-import { dashboardView } from '../views/ToDosViews/dashboardView';
+import { dashboardView } from '../views/listsViews/dashboardView';
 import projectForm from '../views/projectsViews/projectFormView'
 import { createProject, projects} from '../model/ProjectModel'
 
