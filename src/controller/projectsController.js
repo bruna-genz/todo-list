@@ -39,7 +39,6 @@ addBoardBtn.addEventListener('click', () => {
 // Step 2: Create new project with step 1 form when enter is pressed
 
 const newCard = (name) => {
-    console.log
     return `<div class="tests">${name}</div>`
 }
 const addCard = (title) => {
@@ -54,7 +53,6 @@ const submitForm = (form) => {
         if (e.key == 'Enter') {
             e.preventDefault()
             state.currentProject = createProject(inputValue)
-            console.log(state.currentProject)
             addCard(state.currentProject["title"]) 
             
             configRoutes.insertPage(dashboardView(state.currentProject))
