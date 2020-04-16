@@ -34,6 +34,7 @@ const createProjectForm = document.querySelector('form')
 createProjectForm.addEventListener('keydown', (e)=> {
     if (e == enter) {
         // put the picked name into the object from the model
+        // create new card
         // redirect to Todospage currnt project (for the moment dir to default)
     }
 })
