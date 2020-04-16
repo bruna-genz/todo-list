@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   entry: { 
-    main: ['./src/controller/projectsController.js','./src/controller/toDosController.js'  ]
+    main: ['./src/controller/projectsController.js','./src/controller/listsController.js'  ]
   },
   output: {
     filename: 'main.js',
