@@ -1,6 +1,6 @@
 import uniqid from 'uniqid';
 
-const projects = []
+export const projects = []
 
 export const createProject = (title) => {
     const values = {
@@ -8,4 +8,5 @@ export const createProject = (title) => {
         "title" : title
     }
     projects.push(values)
+    console.log(projects)
 }
