@@ -8,5 +8,6 @@ export const createProject = (title) => {
         "title" : title
     }
     projects.push(values)
-    console.log(projects)
+   
+    return values;
 }

@@ -1,8 +1,9 @@
-export const DashboardView = `
+export const dashboardView = (currentProject) => { 
+    const dashboardHtml = `
 <div class="to-dos">
 <div id="sub-nav">
     <div>
-        <div id="title">asdfbasdkjbasd</div>
+        <div id="title" data-projectID=${currentProject.id}>${currentProject.title}</div>
         <div><img src="../src/assets/images/star.svg" alt=""></div>
         <div>Personal</div>
         <div><img src="../src/assets/images/lock.svg" alt=""><p>Público</p></div>
@@ -46,3 +47,5 @@ export const DashboardView = `
 </div>
 </div>
 `
+    return dashboardHtml
+}
