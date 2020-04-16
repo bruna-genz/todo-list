@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/controller/projectsController.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -140,18 +140,7 @@ eval("var api = __webpack_require__(/*! ../../../node_modules/style-loader/dist/
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _assets_styles_global_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/styles/global.scss */ \"./src/assets/styles/global.scss\");\n/* harmony import */ var _assets_styles_global_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_assets_styles_global_scss__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _routes_routesConfig__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../routes/routesConfig */ \"./src/routes/routesConfig.js\");\n/* harmony import */ var _views_projectsViews_navView__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../views/projectsViews/navView */ \"./src/views/projectsViews/navView.js\");\n/* harmony import */ var _views_projectsViews_mainView__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../views/projectsViews/mainView */ \"./src/views/projectsViews/mainView.js\");\n/* harmony import */ var _views_projectsViews_projectFormView__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../views/projectsViews/projectFormView */ \"./src/views/projectsViews/projectFormView.js\");\n\r\n\r\n\r\n\r\n\r\n\r\n// Selectors\r\nconst root = document.querySelector('.root')\r\nroot.insertAdjacentHTML('beforebegin', _views_projectsViews_navView__WEBPACK_IMPORTED_MODULE_2__[\"default\"])\r\n\r\n\r\n\r\n_routes_routesConfig__WEBPACK_IMPORTED_MODULE_1__[\"insertPage\"](_views_projectsViews_mainView__WEBPACK_IMPORTED_MODULE_3__[\"default\"])\r\n\r\n// Buttons\r\nconst addBoardBtn = document.querySelector('.add-board')\r\n\r\naddBoardBtn.addEventListener('click', () => {\r\n    root.insertAdjacentHTML('afterbegin', _views_projectsViews_projectFormView__WEBPACK_IMPORTED_MODULE_4__[\"default\"])\r\n})\r\n\r\n\n\n//# sourceURL=webpack:///./src/controller/projectsController.js?");
-
-/***/ }),
-
-/***/ "./src/controller/toDosController.js":
-/*!*******************************************!*\
-  !*** ./src/controller/toDosController.js ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("alert(\"HEYY woking\")\n\n//# sourceURL=webpack:///./src/controller/toDosController.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _assets_styles_global_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/styles/global.scss */ \"./src/assets/styles/global.scss\");\n/* harmony import */ var _assets_styles_global_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_assets_styles_global_scss__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _routes_routesConfig__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../routes/routesConfig */ \"./src/routes/routesConfig.js\");\n/* harmony import */ var _views_projectsViews_navView__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../views/projectsViews/navView */ \"./src/views/projectsViews/navView.js\");\n/* harmony import */ var _views_projectsViews_mainView__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../views/projectsViews/mainView */ \"./src/views/projectsViews/mainView.js\");\n/* harmony import */ var _views_projectsViews_projectFormView__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../views/projectsViews/projectFormView */ \"./src/views/projectsViews/projectFormView.js\");\n\r\n\r\n\r\n\r\n\r\n\r\n// Selectors\r\nconst root = document.querySelector('.root')\r\n\r\nroot.insertAdjacentHTML('beforebegin', _views_projectsViews_navView__WEBPACK_IMPORTED_MODULE_2__[\"default\"])\r\n_routes_routesConfig__WEBPACK_IMPORTED_MODULE_1__[\"insertPage\"](_views_projectsViews_mainView__WEBPACK_IMPORTED_MODULE_3__[\"default\"])\r\n\r\n// Buttons\r\nconst addBoardBtn = document.querySelector('.add-board')\r\n\r\naddBoardBtn.addEventListener('click', () => {\r\n    root.insertAdjacentHTML('afterbegin', _views_projectsViews_projectFormView__WEBPACK_IMPORTED_MODULE_4__[\"default\"])\r\n})\r\n\r\n\n\n//# sourceURL=webpack:///./src/controller/projectsController.js?");
 
 /***/ }),
 
@@ -200,17 +189,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ 
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (`\r\n    <div class=\"dark-background\">\r\n        <form id=\"new-project\">\r\n            <input type=\"text\" id=\"description\" name=\"description\" placeholder=\"Add project name\"><br><br>\r\n        </form>\r\n    </div>\r\n`);\n\n//# sourceURL=webpack:///./src/views/projectsViews/projectFormView.js?");
-
-/***/ }),
-
-/***/ 0:
-/*!****************************************************************************************!*\
-  !*** multi ./src/controller/projectsController.js ./src/controller/toDosController.js ***!
-  \****************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("__webpack_require__(/*! ./src/controller/projectsController.js */\"./src/controller/projectsController.js\");\nmodule.exports = __webpack_require__(/*! ./src/controller/toDosController.js */\"./src/controller/toDosController.js\");\n\n\n//# sourceURL=webpack:///multi_./src/controller/projectsController.js_./src/controller/toDosController.js?");
 
 /***/ })
 
