@@ -161,7 +161,7 @@ eval("var api = __webpack_require__(/*! ../../../node_modules/style-loader/dist/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("// Step 1: Add lists to current dashboard\r\nconst root = document.querySelector('.root')\r\nroot.addEventListener('click',(e)=>{\r\n    if (e.target.matches('#add-list, #add-list *')) {\r\n        console.log('it is working')\r\n    }\r\n})\r\n//  \n\n//# sourceURL=webpack:///./src/controller/listsController.js?");
+eval("// Step 1: Add lists to current dashboard\r\nconst root = document.querySelector('.root')\r\nroot.addEventListener('click',(e)=>{\r\n    if (e.target.matches('#add-list, #add-list *')) {\r\n        \r\n        const addListBtn = document.querySelector()\r\n    }\r\n})\r\n//  \n\n//# sourceURL=webpack:///./src/controller/listsController.js?");
 
 /***/ }),
 
