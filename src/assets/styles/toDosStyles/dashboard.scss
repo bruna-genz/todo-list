@@ -290,6 +290,16 @@
                     cursor: pointer;
                 }
             }
+            #due-date-btn {
+                display: block;
+                input {
+                    width: 90%;
+                }
+                #title-timebtn {
+                    display: flex;
+                    margin-bottom: 5px;
+                }
+            }
             button {
                 display: flex;
                 border: 0;
@@ -301,6 +311,7 @@
                     margin-right: 5px;
                     
                 }
+                
                 &:hover {
                     background-color: #00000033;
                     cursor: pointer;
@@ -312,7 +323,7 @@
             #save-btn {
                 background-color: #4BBF6B;
                 color: white;
-                margin-top: 3.5em;
+                margin-top: 1.3em;
                 justify-content: center;
                 &:hover {
                     background-color: rgba(75, 191, 108, 0.726);

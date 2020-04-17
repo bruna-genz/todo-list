@@ -29,8 +29,14 @@ export const optionsView = (listName) => {
                     <p>Checklist</p>
                 </button>
                 <button id="due-date-btn">
-                    <img src="../src/assets/images/clock.svg" alt="">
-                    <p>Due date</p>
+                    <div id="title-timebtn">
+                        <img src="../src/assets/images/clock.svg" alt="">
+                        <p>Due date</p>
+                    </div>
+                    <div>
+                        <input type="date" class='date enchilada'>    
+                    </div>
+                    
                 </button>
                 <button id="save-btn">
                     <p>Save</p>
