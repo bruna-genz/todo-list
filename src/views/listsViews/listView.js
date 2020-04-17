@@ -1,6 +1,6 @@
 export const listView = (list) => {
-    const listHTML = `<div class="list">
-        <h1 data-listID="list.id">${list.title}</h1>
+    const listHTML = `<div class="list" data-listID="${list.id}" data-listtitle="${list.title}">
+        <h1>${list.title}</h1>
         <div class="items-container">
 
         </div>    

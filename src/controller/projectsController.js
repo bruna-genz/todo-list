@@ -57,8 +57,7 @@ const submitForm = (form) => {
             
             configRoutes.insertPage(dashboardView(state.currentProject))
             document.querySelector('nav').classList.add('green-nav')
-        }
-        
+        } 
     })
 }
 

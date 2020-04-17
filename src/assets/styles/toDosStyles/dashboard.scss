@@ -309,6 +309,17 @@
                     outline: none;
                 }
             }
+            #save-btn {
+                background-color: #4BBF6B;
+                color: white;
+                margin-top: 3.5em;
+                justify-content: center;
+                &:hover {
+                    background-color: rgba(75, 191, 108, 0.726);
+                    cursor: pointer;
+                    transition: background 250ms ease-in;
+                }
+            }
         }  
         
     }

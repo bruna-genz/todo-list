@@ -1,11 +1,11 @@
-export default `
-<div class="dark-background">
+export const optionsView = (listName) => { 
+    const optionsHTML = `<div class="dark-background">
         <div id="item-options">
             <div id="left-options">
                 <div id="item-title">
                     
-                    <h1><img src="../src/assets/images/tick.svg" alt=""><input type="text" placeholder="Item title"></h1>
-                    <p>in list ListName</p>
+                    <h1><img src="../src/assets/images/tick.svg" alt=""><input id="list-name-input" type="text" placeholder="Item title"></h1>
+                    <p>in list ${listName}</p>
                 </div>
                 <form id="description-form">
                     <h2><img src="../src/assets/images/grid.svg" alt="">Description</h2>
@@ -32,7 +32,13 @@ export default `
                     <img src="../src/assets/images/clock.svg" alt="">
                     <p>Due date</p>
                 </button>
+                <button id="save-btn">
+                    <p>Save</p>
+                </button>
             </div>
         </div>
     </div>
 `
+
+    return optionsHTML
+}
