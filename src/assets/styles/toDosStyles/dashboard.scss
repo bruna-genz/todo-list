@@ -69,7 +69,7 @@
             border-radius: 5px;
             //overflow-y: scroll;
             max-height: 95%;
-            width: 13%;            
+            width: auto;            
             h1 {
                 margin: 10px;
                 font-size: 13px;
@@ -90,7 +90,7 @@
                     border-radius: 10px;   
                 }
                 .items {
-                    width: 95%;
+                    width: 14em;
                     margin: 5px 7px;
                     padding: 7px;
                     background-color: white;
@@ -107,7 +107,7 @@
             .add-item {
                 border: none;
                 background-color: #ebecf0;
-                width: 15em;
+                width: 14em;
                 display: flex;
                 margin: 13px;
                 align-items: center;
@@ -116,7 +116,7 @@
                 padding: 5px;
                 border-radius: 5px;
                 font-size: 13px;
-                width: 13%;
+                
                 
                 &:hover {
                     background-color: #d2d2d8;
@@ -232,9 +232,17 @@
                 margin-bottom: 10px;
                 h1 {
                     display: flex;
-                    align-items: center;
-                    font-size: 18px;
-
+                    input {
+                        display: flex;
+                        align-items: center;
+                        font-size: 18px;
+                        border: none;
+                        background-color: #f4f5f7;
+                        &::placeholder {
+                            font-size: 18px;
+                            color: #53617b;
+                        }
+                    }
                 }
                 p {
                     font-size: 12px;

@@ -4,7 +4,7 @@ export default `
             <div id="left-options">
                 <div id="item-title">
                     
-                    <h1><img src="../src/assets/images/tick.svg" alt="">Item title</h1>
+                    <h1><img src="../src/assets/images/tick.svg" alt=""><input type="text" placeholder="Item title"></h1>
                     <p>in list ListName</p>
                 </div>
                 <form id="description-form">
@@ -23,7 +23,7 @@ export default `
                 </form>
             </div>
             <div id="right-options">
-                <img id="close-icon" src="../src/assets/images/close.svg" alt="">
+                
                 <button id="checklist-btn">
                     <img src="../src/assets/images/tick.svg" alt="">
                     <p>Checklist</p>
