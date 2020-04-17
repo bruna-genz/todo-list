@@ -42,7 +42,7 @@
         display: flex;
         overflow: auto;
         white-space: nowrap;
-        #add-list {
+        .add-list {
             width: 13%;
             padding: 7px;
             border-radius: 5px;
@@ -117,6 +117,7 @@
                 border-radius: 5px;
                 font-size: 13px;
                 width: 13%;
+                
                 &:hover {
                     background-color: #d2d2d8;
                     cursor: pointer;
@@ -142,9 +143,16 @@
             border-radius: 10px;   
         } 
         .new-list-bg {
+            padding: .5em;
+            border: none;
+            border-radius: 4px;
+            margin-top: 4px;
             background-color: #ebecf0 !important;
             animation: slide 2s ease; 
             @keyframes slide { 0% { transform: translate(0, 20px); } 100% { transform: translate(0, 0); } }  
+            &:hover {
+                cursor: default;
+            }
             #new-list {
                 width: 100%;
                 line-height: 6px;
@@ -168,11 +176,17 @@
                         font-size: 15px;
                         width: 60%;
                         height: 35px;
+                        &:hover {
+                            cursor: pointer;
+                        }
                     }
                     img {
                         filter: invert(11%) sepia(34%) saturate(2758%) hue-rotate(195deg) brightness(100%) contrast(89%);
                         height: 13px;
                         width: 13px;
+                        &:hover {
+                            cursor: pointer;
+                        }
                     }
                 }
             }
