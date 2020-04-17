@@ -1,4 +1,4 @@
-export const optionsView = `
+export default `
 <div class="dark-background">
         <div id="item-options">
             <div id="left-options">

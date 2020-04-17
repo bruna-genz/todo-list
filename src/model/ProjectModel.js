@@ -5,7 +5,7 @@ export const projects = []
 export const createProject = (title) => {
     const values = {
         "id" : uniqid(),
-        "title" : title
+        title
     }
     projects.push(values)
    
