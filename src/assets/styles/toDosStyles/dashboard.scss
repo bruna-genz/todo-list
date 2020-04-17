@@ -43,6 +43,7 @@
         overflow: auto;
         white-space: nowrap;
         #add-list {
+            width: 13%;
             padding: 7px;
             border-radius: 5px;
             margin: 5px 7px;
@@ -68,10 +69,7 @@
             border-radius: 5px;
             //overflow-y: scroll;
             max-height: 95%;
-            
-            
-            width: auto;
-            
+            width: 13%;            
             h1 {
                 margin: 10px;
                 font-size: 13px;
@@ -118,6 +116,7 @@
                 padding: 5px;
                 border-radius: 5px;
                 font-size: 13px;
+                width: 13%;
                 &:hover {
                     background-color: #d2d2d8;
                     cursor: pointer;
@@ -141,7 +140,43 @@
         &::-webkit-scrollbar-thumb {
             background-color: rgba(255, 255, 255, 0.589);
             border-radius: 10px;   
-        }  
+        } 
+        .new-list-bg {
+            background-color: #ebecf0 !important;
+            animation: slide 2s ease; 
+            @keyframes slide { 0% { transform: translate(0, 20px); } 100% { transform: translate(0, 0); } }  
+            #new-list {
+                width: 100%;
+                line-height: 6px;
+                input {
+                    border: solid 2px #0079BF;
+                    border-radius: 3px;
+                    padding: 5px;
+                    width: 100%;
+                    height: 35px;
+                }
+                div {
+                    display: flex;
+                    align-items: center;
+                    input {
+                        background-color: #4BBF6B;
+                        border: none;
+                        border-radius: 3px;
+                        color: white;
+                        padding: 6px 15px;
+                        margin-right: 15px;
+                        font-size: 15px;
+                        width: 60%;
+                        height: 35px;
+                    }
+                    img {
+                        filter: invert(11%) sepia(34%) saturate(2758%) hue-rotate(195deg) brightness(100%) contrast(89%);
+                        height: 13px;
+                        width: 13px;
+                    }
+                }
+            }
+        }   
     }
 }
 
@@ -255,3 +290,4 @@
         
     }
 }
+
