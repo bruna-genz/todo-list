@@ -11,9 +11,19 @@ export const optionsView = (listName) => {
                     <h2><img src="../src/assets/images/grid.svg" alt="">Description</h2>
                     <input type="text" id="description" name="description" placeholder="Add detailed description"><br><br>
                 </form>
+                <form id="checklist-form">
+                    <h2><img src="../src/assets/images/grid.svg" alt="">Checklist</h2>
+                    <div class="checklist-items">
+                        <input type="checkbox" name="checklist-items">
+                        <label for="checklist-items">Buy bread</label>
+                    </div>
+                    <input type="text" id="checklist-add-item" name="checklist-item" placeholder="Add an item"><br>
+                    <input type="submit" class="save-btn" id="checklist-button" placeholder="checklist title">
+                    <img id="checklist-image" src="../src/assets/images/close.svg" alt="">
+                </form>
                 <form id="priority-form">
                     <h2><img src="../src/assets/images/grid.svg" alt="">Activity</h2>
-                    <label for="priority">Priority Level:</label>
+                    <label id="priority-label" for="priority">Priority Level:</label>
                     <select id="priority" name="priority">
                         <option value="urgent">Urgent</option>
                         <option value="very important">Very important</option>
@@ -28,13 +38,13 @@ export const optionsView = (listName) => {
                     <img src="../src/assets/images/tick.svg" alt="">
                     <p>Checklist</p>
                 </button>
-                <form id="checklist-title-form">
-                    <h3>Add Checklist</h3>
-                    <label for="checklist-title">Title</label>
-                    <input type="text" id="checklist-title" placeholder="checklist title" name="checklist-title">
-                    <input type="submit" class="save-btn" id="checklist-button" placeholder="checklist title">
+                <form id="checklist-title-form" class="hidden">
+                    <p>Add Checklist <img id="checklist-close" src="../src/assets/images/close.svg" alt=""></p>
+                    <label for="checklist-title">Title</label><br>
+                    <input type="text" id="checklist-title" placeholder="checklist title" name="checklist-title" autofocus>
+                    <input type="submit" class="save-btn" id="checklist-button" value="Add">
                 </form>
-                <button id="due-date-btn">
+                <button id="due-date-btn"">
                     <div id="title-timebtn">
                         <img src="../src/assets/images/clock.svg" alt="">
                         <p>Due date</p>

@@ -50,7 +50,24 @@ root.addEventListener('click', (e)=> {
         const saveBtn = document.querySelector('#save-btn')
         const itemsContainer = parentList.querySelector('.items-container')
 
-        
+
+
+        // TODO Organize checklist 
+
+        // Display checklist title form
+        const checklistBtn = document.querySelector("#checklist-btn")
+        const checklistForm = document.querySelector("#checklist-title-form")
+        checklistBtn.addEventListener("click", () => {
+            checklistForm.classList.toggle("hidden")
+        })
+
+        // Hide checklist title form
+        const checklistCloseButton = document.querySelector("#checklist-close")
+        checklistCloseButton.addEventListener("click", () => {
+            checklistForm.classList.toggle("hidden")
+        })
+
+        // TODO add event listeners to add checklist btn
 
 
 
