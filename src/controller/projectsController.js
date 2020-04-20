@@ -49,15 +49,20 @@ const addCard = (title) => {
 
 const submitForm = (form) => {
     form.addEventListener('keydown', (e)=> {
-        const inputValue = document.querySelector('#description').value
+        state.title = document.querySelector('#description').value
         if (e.key == 'Enter') {
-            e.preventDefault()
-            state.currentProject = createProject(inputValue)
-            addCard(state.currentProject["title"]) 
             
-            configRoutes.insertPage(dashboardView(state.currentProject))
-            document.querySelector('nav').classList.add('green-nav')
-        } 
+            if (state.title) {
+                e.preventDefault()
+                state.currentProject = createProject(state.title)
+                addCard(state.currentProject["title"]) 
+                
+                configRoutes.insertPage(dashboardView(state.currentProject))
+                document.querySelector('nav').classList.add('green-nav')
+            } else {
+                alert("Project must have a name")
+            }
+        }
     })
 }
 

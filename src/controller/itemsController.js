@@ -1,6 +1,7 @@
 import { optionsView } from "../views/listsViews/optionsView";
 import { closeForm } from './projectsController.js';
 import { insertPage } from "../routes/routesConfig";
+import { createItem } from "../model/ItemModel";
 
 const itemState = {}
 
@@ -20,7 +21,8 @@ const insertItem = (name) => {
 root.addEventListener('click', (e)=> {
     if (e.target.matches('.add-item, .add-item *')) {
         
-        // Save list ID and name
+        // Save parent list ID and name
+        const parentList = e.target.closest('.list');
         const parentListID = e.target.closest('.list').dataset.listid
         const parentListName = e.target.closest('.list').dataset.listtitle
         
@@ -41,17 +43,23 @@ root.addEventListener('click', (e)=> {
         const priorityInput = document.querySelector('#priority')
         itemState.priority = actionToInput(priorityInput,"click","priority")
         
-        // 4) Create item object when click save button
-
-        //! we need to figure out how to put the item in the correct place
-
+        // 4) Create item object when click save button and render on page
         const saveBtn = document.querySelector('#save-btn')
-        //const itemsContainer = e.target.previousElementSibling.previousElementSibling
-        console.log(itemsContainer)
+        const itemsContainer = parentList.querySelector('.items-container')
 
+        // TODO get due date and make checklist
+
+
+        const itemsForm = document.querySelector(".dark-background")
         saveBtn.addEventListener('click', ()=> {
-            itemsContainer.insertAdjacentHTML('afterbegin', insertItem(itemState.name))
-            
+
+            if (itemState.name) {
+                itemsContainer.insertAdjacentHTML('afterbegin', insertItem(itemState.name))
+                //createItem(itemState.name, parentListID, itemState.description, dueDate, itemState.priority, checklist)
+                itemsForm.parentNode.removeChild(itemsForm)
+            } else {
+                alert("Item must have a title")
+            }
         })
     }
 })

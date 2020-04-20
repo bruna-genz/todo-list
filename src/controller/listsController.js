@@ -28,13 +28,16 @@ const addList = (submitBtn, reapearBtn) => {
         e.preventDefault()
 
         const listInput = document.querySelector('#list-title')
-        const listName = listInput.value 
+        listState.title = listInput.value 
 
-        const projectID = document.querySelector("#title").dataset.projectid
-        listState.currentList = createList(listName, projectID)
+        if (listState.title) {
+            const projectID = document.querySelector("#title").dataset.projectid
+            listState.currentList = createList(listState.title, projectID)
 
-        reapearBtn.insertAdjacentHTML('beforebegin', listView(listState.currentList))
-
+            reapearBtn.insertAdjacentHTML('beforebegin', listView(listState.currentList))
+        } else {
+            alert("List must have a title")
+        }
     })
 }
 

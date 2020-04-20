@@ -2,7 +2,7 @@ import uniqid from 'uniqid';
 
 export const items = []
 
-export const createItem = (title, listID, description, dueDate, priority, checkbox = nil) => {
+export const createItem = (title, listID, description, dueDate, priority, checklist) => {
     const values = {
         "id" : uniqid(),
         listID,
@@ -10,7 +10,7 @@ export const createItem = (title, listID, description, dueDate, priority, checkb
         description,
         dueDate,
         priority,
-        checkbox
+        checklist
     }
     items.push(values)
 
