@@ -43,11 +43,15 @@ root.addEventListener('click', (e)=> {
         const priorityInput = document.querySelector('#priority')
         itemState.priority = actionToInput(priorityInput,"click","priority")
         
+        const dateInput = document.querySelector('.date')
+        itemState.date = new Date(actionToInput(dateInput,"change","date"))
+        
         // 4) Create item object when click save button and render on page
         const saveBtn = document.querySelector('#save-btn')
         const itemsContainer = parentList.querySelector('.items-container')
 
-        // TODO get due date and make checklist
+        
+
 
 
         const itemsForm = document.querySelector(".dark-background")
@@ -56,6 +60,7 @@ root.addEventListener('click', (e)=> {
             if (itemState.name) {
                 itemsContainer.insertAdjacentHTML('afterbegin', insertItem(itemState.name))
                 //createItem(itemState.name, parentListID, itemState.description, dueDate, itemState.priority, checklist)
+                console.log(itemState)
                 itemsForm.parentNode.removeChild(itemsForm)
             } else {
                 alert("Item must have a title")

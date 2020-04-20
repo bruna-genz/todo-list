@@ -28,17 +28,23 @@ export const optionsView = (listName) => {
                     <img src="../src/assets/images/tick.svg" alt="">
                     <p>Checklist</p>
                 </button>
+                <form id="checklist-title-form">
+                    <h3>Add Checklist</h3>
+                    <label for="checklist-title">Title</label>
+                    <input type="text" id="checklist-title" placeholder="checklist title" name="checklist-title">
+                    <input type="submit" class="save-btn" id="checklist-button" placeholder="checklist title">
+                </form>
                 <button id="due-date-btn">
                     <div id="title-timebtn">
                         <img src="../src/assets/images/clock.svg" alt="">
                         <p>Due date</p>
                     </div>
                     <div>
-                        <input type="date" class='date enchilada'>    
+                        <input type="date" class='date'>    
                     </div>
                     
                 </button>
-                <button id="save-btn">
+                <button class="save-btn">
                     <p>Save</p>
                 </button>
             </div>
