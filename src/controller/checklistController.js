@@ -14,7 +14,7 @@ const checklistState = {} // Current checklist
 
 // TODO fix this function
 export const renderChecklist = () => {
-    const descriptionForm = document.querySelector('#description-form')
+    const checklistContainer = document.querySelector('.checklist-container')
     
     checklistState.title = document.querySelector('#checklist-title').value
     checklistState.id = uniqid()
@@ -22,7 +22,7 @@ export const renderChecklist = () => {
         alert("Checklist must have a name")
     } else {
         checklistsArray.push(checklistState)
-        descriptionForm.insertAdjacentHTML("afterend", checklistView(checklistState))
+        checklistContainer.insertAdjacentHTML("beforeend", checklistView(checklistState))
     }    
 }
 
@@ -34,6 +34,24 @@ const addCheckbox = (checkbox, id) => {
     })
 }
 
+
+const checklistContainer = document.querySelector('.checklist-container')
+//const addCheckboxBtn = document.querySelector('#add-checkbox-btn')
+checklistContainer.addEventListener('click',(e) => {
+    e.preventDefault()
+    if (e.target.matches('#add-checkbox-btn, #add-checkbox-btn *')) {
+        const checklistAddItem = document.querySelector('#checklist-add-item')
+    
+        console.log(e.target)
+        addCheckbox()
+    }
+    
+    
+})
+
+
+
+
 const saveData = () => {
 
     //TODO get itemID from the HTML data attribute
@@ -44,3 +62,5 @@ const saveData = () => {
     }
     
 }
+
+

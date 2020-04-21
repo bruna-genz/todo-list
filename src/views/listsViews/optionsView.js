@@ -11,7 +11,7 @@ export const optionsView = (listName) => {
                     <h2><img src="../src/assets/images/grid.svg" alt="">Description</h2>
                     <input type="text" id="description" name="description" placeholder="Add detailed description"><br><br>
                 </form>
-                
+                <div class="checklist-container"></div>
                 <form id="priority-form">
                     <h2><img src="../src/assets/images/grid.svg" alt="">Activity</h2>
                     <label id="priority-label" for="priority">Priority Level:</label>

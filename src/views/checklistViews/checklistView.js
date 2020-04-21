@@ -7,7 +7,7 @@ export const checklistView = (checklist) => {
             <label for="checklist-items">Buy bread</label>
         </div>
         <input type="text" id="checklist-add-item" name="checklist-item" placeholder="Add an item"><br>
-        <input type="submit" class="save-btn" id="add-checkbox-btn" placeholder="checklist title">
+        <input type="submit" class="save-btn" id="add-checkbox-btn" placeholder="checklist title" value="send">
         <img id="checklist-image" src="../src/assets/images/close.svg" alt="">
     </form>`
 
