@@ -56,18 +56,33 @@ root.addEventListener('click', (e)=> {
 
         // Display checklist title form
         const checklistBtn = document.querySelector("#checklist-btn")
-        const checklistForm = document.querySelector("#checklist-title-form")
+        const checklistTitleForm = document.querySelector("#checklist-title-form")
         checklistBtn.addEventListener("click", () => {
-            checklistForm.classList.toggle("hidden")
+            checklistTitleForm.classList.toggle("hidden")
         })
 
         // Hide checklist title form
         const checklistCloseButton = document.querySelector("#checklist-close")
         checklistCloseButton.addEventListener("click", () => {
-            checklistForm.classList.toggle("hidden")
+            checklistTitleForm.classList.toggle("hidden")
         })
 
-        // TODO add event listeners to add checklist btn
+        // TODO add event listeners to add checklist btn    
+
+        const submitChecklistbtn = document.querySelector('#checklist-button')
+        submitChecklistbtn.addEventListener('click',(e)=>{
+            e.preventDefault()
+            checklistTitleForm.classList.toggle("hidden")
+            console.log('hello world')
+            //Todo Pick up info from input
+            //add Input value to checklist div
+            //Appear div for chelist
+            const checklistContainer = document.querySelector('#checklist-form')
+            checklistContainer.classList.toggle("hidden")
+
+
+        })
+        console.log(submitChecklistbtn)
 
 
 

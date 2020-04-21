@@ -11,14 +11,14 @@ export const optionsView = (listName) => {
                     <h2><img src="../src/assets/images/grid.svg" alt="">Description</h2>
                     <input type="text" id="description" name="description" placeholder="Add detailed description"><br><br>
                 </form>
-                <form id="checklist-form">
+                <form id="checklist-form" class="hidden">
                     <h2><img src="../src/assets/images/grid.svg" alt="">Checklist</h2>
                     <div class="checklist-items">
                         <input type="checkbox" name="checklist-items">
                         <label for="checklist-items">Buy bread</label>
                     </div>
                     <input type="text" id="checklist-add-item" name="checklist-item" placeholder="Add an item"><br>
-                    <input type="submit" class="save-btn" id="checklist-button" placeholder="checklist title">
+                    <input type="submit" class="save-btn" id="add-checkbox-btn" placeholder="checklist title">
                     <img id="checklist-image" src="../src/assets/images/close.svg" alt="">
                 </form>
                 <form id="priority-form">
