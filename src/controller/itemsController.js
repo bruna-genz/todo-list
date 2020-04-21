@@ -2,7 +2,7 @@ import { optionsView } from "../views/listsViews/optionsView";
 import { closeForm } from './projectsController.js';
 import { insertPage } from "../routes/routesConfig";
 import { createItem } from "../model/ItemModel";
-import { renderChecklist } from "./checklistController";
+import { renderChecklist, addCheckbox } from "./checklistController";
 
 const itemState = {}
 
@@ -83,12 +83,17 @@ root.addEventListener('click', (e)=> {
             
             renderChecklist()
 
+            const checklistContainer = document.querySelector('.checklist-container')
+        
+            checklistContainer.addEventListener('click',(e) => {
+                e.preventDefault()
+                addCheckbox(e.target)   
+                console.log(e.target)
+            })
+
 
         })
-        console.log(submitChecklistbtn)
-
-
-
+        
         const itemsForm = document.querySelector(".dark-background")
         saveBtn.addEventListener('click', ()=> {
 

@@ -26,31 +26,35 @@ export const renderChecklist = () => {
     }    
 }
 
-const addCheckbox = (checkbox, id) => {
-    checklists.forEach(list => {
+const createCheckbox = (checkbox, id) => {
+    checklistsArray.forEach(list => {
         if (list.id === id) {
-            list.checkboxes.push(checkbox)
+            if (list.checkboxes) {
+                list.checkboxes.push(checkbox)
+            } else {
+                list.checkboxes = [checkbox]
+            }
+            
         }
     })
 }
 
+const renderCheckbox = (label, itemID) => {
+    const checkboxHtml = `<input type="checkbox" name="checklist-items"><label for="checklist-items">${label}</label><br>`
+    const checklistForm = document.querySelectorAll(`[data-checklistid=${itemID}]`)[0]
+    const checkboxContainer = checklistForm.querySelector(".checklist-items")
 
-const checklistContainer = document.querySelector('.checklist-container')
-//const addCheckboxBtn = document.querySelector('#add-checkbox-btn')
-checklistContainer.addEventListener('click',(e) => {
-    e.preventDefault()
-    if (e.target.matches('#add-checkbox-btn, #add-checkbox-btn *')) {
-        const checklistAddItem = document.querySelector('#checklist-add-item')
-    
-        console.log(e.target)
-        addCheckbox()
+    checkboxContainer.insertAdjacentHTML("beforeend", checkboxHtml)
+}
+
+export const addCheckbox = (target) => {
+    if (target.matches('#add-checkbox-btn, #add-checkbox-btn *')) {
+        const checklistName = document.querySelector('#checklist-add-item').value
+        const itemID = target.parentElement.dataset.checklistid
+        createCheckbox(checklistName, itemID)
+        renderCheckbox(checklistName, itemID)
     }
-    
-    
-})
-
-
-
+}
 
 const saveData = () => {
 
