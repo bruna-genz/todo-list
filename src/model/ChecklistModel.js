@@ -6,10 +6,10 @@ export const checklists = []
 
 export const createChecklist = (title, itemID) => {
     const values = {
-        "id" : uniqid(),
+        id : uniqid(),
         title,
         itemID,
-        checkboxes = []
+        checkboxes : []
     }
     checklists.push(values)
 

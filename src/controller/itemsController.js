@@ -2,6 +2,7 @@ import { optionsView } from "../views/listsViews/optionsView";
 import { closeForm } from './projectsController.js';
 import { insertPage } from "../routes/routesConfig";
 import { createItem } from "../model/ItemModel";
+import { renderChecklist } from "./checklistController";
 
 const itemState = {}
 
@@ -80,7 +81,7 @@ root.addEventListener('click', (e)=> {
 
             // render view from checklist controller - in checklist controller
             
-            
+            renderChecklist()
 
 
         })
