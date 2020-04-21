@@ -32,7 +32,7 @@ export const optionsView = (listName) => {
                 <form id="checklist-title-form" class="hidden">
                     <p>Add Checklist <img id="checklist-close" src="../src/assets/images/close.svg" alt=""></p>
                     <label for="checklist-title">Title</label><br>
-                    <input type="text" id="checklist-title" placeholder="checklist title" name="checklist-title" autofocus>
+                    <input type="text" id="checklist-title" value="checklist title" name="checklist-title" autofocus>
                     <input type="submit" class="save-btn" id="checklist-button" value="Add">
                 </form>
                 <button id="due-date-btn"">
