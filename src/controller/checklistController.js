@@ -40,7 +40,7 @@ const createCheckbox = (checkbox, id) => {
 }
 
 const renderCheckbox = (label, itemID) => {
-    const checkboxHtml = `<input type="checkbox" name="checklist-items"><label for="checklist-items">${label}</label><br>`
+    const checkboxHtml = `<div><input type="checkbox" name="checklist-items"><label for="checklist-items">${label}</label></div>`
     const checklistForm = document.querySelectorAll(`[data-checklistid=${itemID}]`)[0]
     const checkboxContainer = checklistForm.querySelector(".checklist-items")
 
