@@ -73,10 +73,13 @@ root.addEventListener('click', (e)=> {
         submitChecklistbtn.addEventListener('click',(e)=>{
             e.preventDefault()
             checklistTitleForm.classList.toggle("hidden")
-            console.log('hello world')
+            
+            
             //Todo Pick up info from input
+            
             //add Input value to checklist div
             //Appear div for chelist
+
             const checklistContainer = document.querySelector('#checklist-form')
             checklistContainer.classList.toggle("hidden")
 
