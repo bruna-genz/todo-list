@@ -50,8 +50,6 @@ root.addEventListener('click', (e)=> {
         const saveBtn = document.querySelector('#save-btn')
         const itemsContainer = parentList.querySelector('.items-container')
 
-
-
         // TODO Organize checklist 
 
         // Display checklist title form
@@ -80,8 +78,9 @@ root.addEventListener('click', (e)=> {
             //add Input value to checklist div
             //Appear div for chelist
 
-            const checklistContainer = document.querySelector('#checklist-form')
-            checklistContainer.classList.toggle("hidden")
+            // render view from checklist controller - in checklist controller
+            
+            
 
 
         })
@@ -94,8 +93,7 @@ root.addEventListener('click', (e)=> {
 
             if (itemState.name) {
                 itemsContainer.insertAdjacentHTML('afterbegin', insertItem(itemState.name))
-                //createItem(itemState.name, parentListID, itemState.description, dueDate, itemState.priority, checklist)
-                console.log(itemState)
+                //createItem(itemState.name, parentListID, itemState.description, dueDate, itemState.priority)
                 itemsForm.parentNode.removeChild(itemsForm)
             } else {
                 alert("Item must have a title")
