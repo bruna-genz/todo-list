@@ -1,8 +1,8 @@
 import { optionsView } from "../views/listsViews/optionsView";
 import { closeForm } from './projectsController.js';
-import { insertPage } from "../routes/routesConfig";
 import { createItem } from "../model/ItemModel";
 import { renderChecklist, addCheckbox, saveData } from "./checklistController";
+import { format } from 'date-fns'
 
 const itemState = {}
 
@@ -17,7 +17,16 @@ const actionToInput = (input,event,item) => {
 }
 
 const insertItem = (name) => {
-    return `<div class="items" data-itemid="${itemState.id}"><p>${name}</p><button class="priority"></button></div>`
+    const splitDate = itemState.date.split("-")
+
+    const date = format(new Date(splitDate[0], splitDate[1], splitDate[2]), 'dd MMM yyyy')
+    const dueDate = `<button class="due-date"><img src="../src/assets/images/clock.svg" alt="">${date}</button>`
+
+    return `<div class="items" data-itemid="${itemState.id}">
+                <button class="priority ${itemState.priority}"></button>
+                <p>${name}</p>
+                ${ itemState.date == undefined ? "" : dueDate }
+            </div>`
 }
 root.addEventListener('click', (e)=> {
     if (e.target.matches('.add-item, .add-item *')) {

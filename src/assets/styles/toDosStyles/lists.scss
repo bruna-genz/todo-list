@@ -69,27 +69,41 @@
                         border: none;
                         border-radius: 6px;
                         
-                     }
+                    }
                     .urgent {
                         display: block;
-                        --background-prt: red;
+                        --background-prt: #EB5A46;
                     }
                     
                     .very-important {
                         display: block;
-                        --background-prt: orange;
+                        --background-prt: #FF9F1A;
                     }
                     .important {
                         display: block;
-                        --background-prt: yellow;
+                        --background-prt: #F2D600;
                     }  
                     .normal {
                         display: block;
-                        --background-prt: green;
+                        --background-prt: #61BD4F;
                     }
                     
                     &:hover {
                         cursor: pointer;
+                    }
+                    .due-date {
+                        background: #EC9488;
+                        color: white;
+                        border: none;
+                        padding: 5px;
+                        border-radius: 3px;
+                        margin-top: 3px;
+                        display: flex;
+                        align-items: center;
+                        img {
+                            margin-right: 6px;
+                            width: 15px;
+                        }
                     }
                 }
             }
