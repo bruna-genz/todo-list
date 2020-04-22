@@ -2,7 +2,7 @@ import { optionsView } from "../views/listsViews/optionsView";
 import { closeForm } from './projectsController.js';
 import { insertPage } from "../routes/routesConfig";
 import { createItem } from "../model/ItemModel";
-import { renderChecklist, addCheckbox } from "./checklistController";
+import { renderChecklist, addCheckbox, saveData } from "./checklistController";
 
 const itemState = {}
 
@@ -17,7 +17,7 @@ const actionToInput = (input,event,item) => {
 }
 
 const insertItem = (name) => {
-    return `<div class="items">${name}</div>`
+    return `<div class="items" data-itemid="${itemState.id}">${name}</div>`
 }
 root.addEventListener('click', (e)=> {
     if (e.target.matches('.add-item, .add-item *')) {
@@ -88,8 +88,10 @@ root.addEventListener('click', (e)=> {
         saveBtn.addEventListener('click', ()=> {
 
             if (itemState.name) {
+                const itemInfo = createItem(itemState.name, parentListID, itemState.description, itemState.date, itemState.priority)
+                itemState.id = itemInfo.id
                 itemsContainer.insertAdjacentHTML('afterbegin', insertItem(itemState.name))
-                //createItem(itemState.name, parentListID, itemState.description, dueDate, itemState.priority)
+                saveData(itemState.id)
                 itemsForm.parentNode.removeChild(itemsForm)
             } else {
                 alert("Item must have a title")

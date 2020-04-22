@@ -19,7 +19,10 @@ export const dashboardView = (currentProject) => {
      <div class="list">
          <h1>My firlst tittle</h1>
          <div class="items-container">
-             <div class="items">sadfasdfasdf</div>
+             <div class="items">
+                sadfasdfasdf
+                <a class="priority"></a>
+             </div>
              <div class="items">asdfasdf</div>
              <div class="items">sadfasdfasdf</div>
              <div class="items">asdfasdf</div>

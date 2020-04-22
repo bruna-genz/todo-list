@@ -13,5 +13,7 @@ export const createItem = (title, listID, description, dueDate, priority) => {
     }
     items.push(values)
 
+    console.log(items)
+
     return values;  
 }

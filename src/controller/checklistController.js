@@ -1,4 +1,4 @@
-import {createChecklist} from "../model/ChecklistModel"
+import {createChecklist, checklists} from "../model/ChecklistModel"
 import { checklistView } from "../views/checklistViews/checklistView";
 import { insertPage } from "../routes/routesConfig";
 import uniqid from 'uniqid';
@@ -9,7 +9,7 @@ import uniqid from 'uniqid';
 ]
 */
 
-const checklistsArray = []
+let checklistsArray = []
 const checklistState = {} // Current checklist
 
 // TODO fix this function
@@ -50,23 +50,21 @@ const renderCheckbox = (label, itemID) => {
 export const addCheckbox = (addbtn) => {
     if (addbtn.matches('#add-checkbox-btn, #add-checkbox-btn *')) {
         const checklistName = addbtn.previousElementSibling.previousElementSibling.value
-        console.log(addbtn)
-        console.log(addbtn.previousElementSibling)
         const itemID = addbtn.parentElement.dataset.checklistid
         createCheckbox(checklistName, itemID)
         renderCheckbox(checklistName, itemID)
     }
 }
 
-const saveData = () => {
-
-    //TODO get itemID from the HTML data attribute
+export const saveData = (itemID) => {
+    
     if (checklistsArray !== []) {
         checklistsArray.forEach(checklist => {
-            createChecklist(checklist.id, checklist.title, checklist.itemID, checklist.checkbox = null)
+            createChecklist(checklist.id, checklist.title, itemID, checklist.checkbox = null)
         })
     }
-    
+
+    checklistsArray = []
 }
 
 
