@@ -1,16 +1,16 @@
 import uniqid from 'uniqid';
+import { persistData, readstorage } from "./db";
 
-export let projects = []
+let projects = []
 
-const persistData = () => {
+
+
+/*const persistData = () => {
     localStorage.setItem('projects',JSON.stringify(projects))
-}
+}*/
 
-export const readStorage = () => {
-    const storage = JSON.parse(localStorage.getItem('projects'))
-    if (storage) projects = storage 
-    return projects
-}
+export const readStorage = () =>  readstorage('projects',projects) 
+ 
 
 
 export const createProject = (title) => {
@@ -19,7 +19,7 @@ export const createProject = (title) => {
         title
     }
     projects.push(values)
-    persistData()
+    persistData('projects',projects)
     return values;
 }
 
