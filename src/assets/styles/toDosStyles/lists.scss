@@ -60,6 +60,33 @@
                     border-radius: 5px;
                     border-bottom: 1px solid rgb(100, 98, 98);
                     font-size: 13px;
+                    .priority {
+                        display: none;
+                        --background-prt: green;
+                        width: 25%;
+                        height: 9px;
+                        background: var(--background-prt);
+                        border: none;
+                        border-radius: 6px;
+                        
+                     }
+                    .urgent {
+                        display: block;
+                        --background-prt: red;
+                    }
+                    
+                    .very-important {
+                        display: block;
+                        --background-prt: orange;
+                    }
+                    .important {
+                        display: block;
+                        --background-prt: yellow;
+                    }  
+                    .normal {
+                        display: block;
+                        --background-prt: green;
+                    }
                     
                     &:hover {
                         cursor: pointer;

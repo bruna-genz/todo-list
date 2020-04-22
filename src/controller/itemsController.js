@@ -17,7 +17,7 @@ const actionToInput = (input,event,item) => {
 }
 
 const insertItem = (name) => {
-    return `<div class="items" data-itemid="${itemState.id}">${name}</div>`
+    return `<div class="items" data-itemid="${itemState.id}"><p>${name}</p><button class="priority"></button></div>`
 }
 root.addEventListener('click', (e)=> {
     if (e.target.matches('.add-item, .add-item *')) {
