@@ -73,25 +73,15 @@ root.addEventListener('click', (e)=> {
             e.preventDefault()
             checklistTitleForm.classList.toggle("hidden")
             
-            
-            //Todo Pick up info from input
-            
-            //add Input value to checklist div
-            //Appear div for chelist
-
-            // render view from checklist controller - in checklist controller
-            
             renderChecklist()
+        })
 
-            const checklistContainer = document.querySelector('.checklist-container')
+        const checklistContainer = document.querySelector('.checklist-container')
         
-            checklistContainer.addEventListener('click',(e) => {
-                e.preventDefault()
-                addCheckbox(e.target)   
-                console.log(e.target)
-            })
-
-
+        checklistContainer.addEventListener('click',(e) => {
+            e.preventDefault()
+            addCheckbox(e.target)   
+            console.log(e.target)
         })
         
         const itemsForm = document.querySelector(".dark-background")
