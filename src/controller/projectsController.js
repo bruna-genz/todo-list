@@ -8,6 +8,10 @@ import { createProject, projects} from '../model/ProjectModel'
 
 const state = {}
 
+//const renderProjects = () => {
+//    if (projects) 
+//}
+
 // Selectors
 const root = document.querySelector('.root')
 root.insertAdjacentHTML('beforebegin', navView)

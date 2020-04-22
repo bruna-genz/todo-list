@@ -16,33 +16,7 @@ export const dashboardView = (currentProject) => {
     </div>
 </div>
 <div id="list-container">
-     <div class="list">
-         <h1>My firlst tittle</h1>
-         <div class="items-container">
-             <div class="items">
-                
-                <button class="priority">jaja</button>
-                <p>sadfasdfasdf</p>
-            </div>
-             <div class="items">asdf<button class="priority urgent"></button></div>
-             <div class="items">asdf<button class="priority very-important"></button></div>
-             <div class="items">asdf<button class="priority important"></button></div>
-             <div class="items">asdf<button class="priority normal"></button></div>
-             <div class="items">asdfasdf</div>
-             <div class="items">sadfasdfasdf</div>
-             <div class="items">asdfasdf</div>
-             <div class="items">sadfasdfasdf</div>
-             <div class="items">asdfasdf</div>
-             <div class="items">sadfasdfasdf</div>
-             <div class="items">asdfasdf</div>
-             <div class="items">sadfasdfasdf</div>
-             <div class="items">asdfasdf</div>
-         </div>    
-         <button class="add-item">
-            <img src="../src/assets/images/plus.svg" alt=""> 
-            <p>Add Item</p> 
-         </button>
-     </div>
+     
      
      <button class="add-list">
         <img src="../src/assets/images/plus.svg" alt="">
