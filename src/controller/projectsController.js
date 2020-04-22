@@ -3,21 +3,33 @@ import * as configRoutes from '../routes/routesConfig';
 import navView from '../views/projectsViews/navView'
 import mainView from '../views/projectsViews/mainView'
 import { dashboardView } from '../views/listsViews/dashboardView';
+import { projectBoardView } from '../views/projectsViews/projectBoardView';
 import projectForm from '../views/projectsViews/projectFormView'
-import { createProject, projects} from '../model/ProjectModel'
+import { createProject,readStorage} from '../model/ProjectModel'
 
 const state = {}
 
-//const renderProjects = () => {
-//    if (projects) 
-//}
+const renderProjects = () => {
+    console.log(state.projectsArray)
+    if (state.projectsArray) {
+        
+        const boardsContainer = document.querySelector('.my-boards')
+        state.projectsArray.forEach(project => {
+            boardsContainer.insertAdjacentHTML('afterbegin', projectBoardView(project))
+        })
+    }
+}
 
-// Selectors
+// Read storage
+window.addEventListener('load', () => {    
+    state.projectsArray = readStorage()
+    renderProjects()
+})
+
+// Step 0: Load page elements
 const root = document.querySelector('.root')
 root.insertAdjacentHTML('beforebegin', navView)
-
 configRoutes.insertPage(mainView)
-
 
 // Step 1: Pop form when addBoardBtn is clicked 
 
@@ -42,15 +54,6 @@ addBoardBtn.addEventListener('click', () => {
 
 // Step 2: Create new project with step 1 form when enter is pressed
 
-const newCard = (name) => {
-    return `<div class="tests">${name}</div>`
-}
-const addCard = (title) => {
-    const boardsContainer = document.querySelector('.my-boards')
-    boardsContainer.insertAdjacentHTML('afterbegin',newCard(title))
-}
-
-
 const submitForm = (form) => {
     form.addEventListener('keydown', (e)=> {
         state.title = document.querySelector('#description').value
@@ -59,8 +62,8 @@ const submitForm = (form) => {
             if (state.title) {
                 e.preventDefault()
                 state.currentProject = createProject(state.title)
-                addCard(state.currentProject["title"]) 
-                
+                state.projectsArray.push(state.currentProject)
+                renderProjects()        
                 configRoutes.insertPage(dashboardView(state.currentProject))
                 document.querySelector('nav').classList.add('green-nav')
             } else {

@@ -1,16 +1,16 @@
 import uniqid from 'uniqid';
 
-export const projects = []
+export let projects = []
 
 const persistData = () => {
     localStorage.setItem('projects',JSON.stringify(projects))
 }
 
-const readStorage = () => {
+export const readStorage = () => {
     const storage = JSON.parse(localStorage.getItem('projects'))
     if (storage) projects = storage 
+    return projects
 }
-
 
 
 export const createProject = (title) => {
