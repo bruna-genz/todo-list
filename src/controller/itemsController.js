@@ -48,7 +48,7 @@ root.addEventListener('click', (e)=> {
         itemState.date = new Date(actionToInput(dateInput,"change","date"))
         
         // 4) Create item object when click save button and render on page
-        const saveBtn = document.querySelector('#save-btn')
+        const saveBtn = document.querySelector('#save-item-btn')
         const itemsContainer = parentList.querySelector('.items-container')
 
         // TODO Organize checklist 
@@ -81,7 +81,7 @@ root.addEventListener('click', (e)=> {
         checklistContainer.addEventListener('click',(e) => {
             e.preventDefault()
             addCheckbox(e.target)   
-            console.log(e.target)
+           
         })
         
         const itemsForm = document.querySelector(".dark-background")

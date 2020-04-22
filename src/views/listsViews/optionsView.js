@@ -45,7 +45,7 @@ export const optionsView = (listName) => {
                     </div>
                     
                 </button>
-                <button class="save-btn">
+                <button id ="save-item-btn" class="save-btn">
                     <p>Save</p>
                 </button>
             </div>

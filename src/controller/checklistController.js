@@ -47,10 +47,12 @@ const renderCheckbox = (label, itemID) => {
     checkboxContainer.insertAdjacentHTML("beforeend", checkboxHtml)
 }
 
-export const addCheckbox = (target) => {
-    if (target.matches('#add-checkbox-btn, #add-checkbox-btn *')) {
-        const checklistName = document.querySelector('#checklist-add-item').value
-        const itemID = target.parentElement.dataset.checklistid
+export const addCheckbox = (addbtn) => {
+    if (addbtn.matches('#add-checkbox-btn, #add-checkbox-btn *')) {
+        const checklistName = addbtn.previousElementSibling.previousElementSibling.value
+        console.log(addbtn)
+        console.log(addbtn.previousElementSibling)
+        const itemID = addbtn.parentElement.dataset.checklistid
         createCheckbox(checklistName, itemID)
         renderCheckbox(checklistName, itemID)
     }
