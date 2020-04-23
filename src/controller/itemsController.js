@@ -17,14 +17,16 @@ export const renderItems = (listId) => {
                 
                 const listBoard = document.querySelectorAll(`[data-listid='${listId}']`)[0]
                 const itemContainer = listBoard.querySelector('.items-container')
-                console.log(listBoard)
-                console.log(itemContainer)
                 itemContainer.insertAdjacentHTML('afterbegin', insertItem(item))
                 //renderItems(listId)
             }
         })
     }
 }
+
+/*const isValidDate = (d) => {
+    return d instanceof Date && !isNaN(d);
+}*/
 
 const root = document.querySelector('.root')
 
@@ -33,6 +35,7 @@ const root = document.querySelector('.root')
 const actionToInput = (input,event,item) => {
     input.addEventListener(event, ()=> {
         itemState[item] = input.value
+        
     })
 }
 
@@ -40,21 +43,20 @@ const insertItem = (item) => {
     let splitDate
     let date
 
-    if (item.date ) {
+    if (item.date) {
         splitDate = item.date.split("-")
         date = format(new Date(splitDate[0], splitDate[1], splitDate[2]), 'dd MMM yyyy')
-    } else {   
+    } else {  
         date = ""
     }
     
     
-    
-    const dueDate = `<button class="due-date"><img src="../src/assets/images/clock.svg" alt="">${date }</button>`
+    const dueDate = `<button class="due-date"><img src="../src/assets/images/clock.svg" alt="">${date}</button>`
 
     return `<div class="items" data-itemid="${item.id}">
                 <button class="priority ${item.priority}"></button>
-                <p>${item.name}</p>
-                ${ dueDate }
+                <p>${item.title}</p>
+                ${ date == "" ? "" : dueDate }
             </div>`
 }
 root.addEventListener('click', (e)=> {
@@ -72,7 +74,7 @@ root.addEventListener('click', (e)=> {
         // 3) Get values from inputs
         //let itemName
         const nameInput = document.querySelector('#list-name-input')
-        itemState.name = actionToInput(nameInput,"keydown", "name")
+        itemState.title = actionToInput(nameInput,"keydown", "title")
         
         //let itemDescription
         const descriptionInput = document.querySelector('#description')
@@ -125,8 +127,8 @@ root.addEventListener('click', (e)=> {
         const itemsForm = document.querySelector(".dark-background")
         saveBtn.addEventListener('click', ()=> {
 
-            if (itemState.name) {
-                const itemInfo = createItem(itemState.name, parentListID, itemState.description, itemState.date, itemState.priority)
+            if (itemState.title) {
+                const itemInfo = createItem(itemState.title, parentListID, itemState.description, itemState.date, itemState.priority)
                 itemState.id = itemInfo.id
                 itemsContainer.insertAdjacentHTML('afterbegin', insertItem(itemState))
                 saveData(itemState.id)
