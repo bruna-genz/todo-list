@@ -16,10 +16,10 @@ export const editOptionsView = (item) => {
                     <h2><img src="../src/assets/images/grid.svg" alt="">Activity</h2>
                     <label id="priority-label" for="priority">Priority Level:</label>
                     <select id="priority" name="priority">
-                        <option value="urgent">Urgent</option>
-                        <option value="very important">Very important</option>
-                        <option value="important">Important</option>
-                        <option value="normal">Normal</option>
+                        <option ${item.priority == 'urgent' ? "selected='selected'": "" } value="urgent">Urgent</option>
+                        <option ${item.priority == 'veryimportant' ? "selected='selected'": "" } value="very important">Very important</option>
+                        <option ${item.priority == 'important' ? "selected='selected'": "" } value="important">Important</option>
+                        <option ${item.priority == 'normal' ? "selected='selected'": "" } value="normal">Normal</option>
                     </select>
                 </form>
             </div>
@@ -34,13 +34,13 @@ export const editOptionsView = (item) => {
                     <input type="text" id="checklist-title" value="checklist title" name="checklist-title" autofocus>
                     <input type="submit" class="save-btn" id="checklist-button" value="Add">
                 </form>
-                <button id="due-date-btn" value="${item.date}">
+                <button id="due-date-btn">
                     <div id="title-timebtn">
                         <img src="../src/assets/images/clock.svg" alt="">
                         <p>Due date</p>
                     </div>
                     <div>
-                        <input type="date" class='date'>    
+                        <input type="date" class='date' value="${item.date ? item.date : ""}">    
                     </div>
                     
                 </button>

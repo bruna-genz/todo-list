@@ -1,4 +1,4 @@
-import {createChecklist, checklists} from "../model/ChecklistModel"
+import {createChecklist, readStorage } from "../model/ChecklistModel"
 import { checklistView } from "../views/checklistViews/checklistView";
 import { insertPage } from "../routes/routesConfig";
 import uniqid from 'uniqid';
@@ -12,8 +12,24 @@ import uniqid from 'uniqid';
 let checklistsArray = []
 const checklistState = {} // Current checklist
 
+export const renderChecklists  = (itemId) => {
+    checklistState.checklists = readStorage()
+    
+    if ( checklistState.checklists) {
+        
+        checklistState.checklists.forEach((checklist) => {
+           
+            if (checklist.itemID == itemId) {     
+                const checklistContainer = document.querySelector('.checklist-container')
+                console.log(checklistState.checklists)
+                checklistContainer.insertAdjacentHTML("beforeend", checklistView(checklist))
+            }
+        })
+    }
+}
+
 // TODO fix this function
-export const renderChecklist = () => {
+export const addChecklist = () => {
     const checklistContainer = document.querySelector('.checklist-container')
     
     checklistState.title = document.querySelector('#checklist-title').value

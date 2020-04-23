@@ -2,8 +2,11 @@ import { optionsView} from "../views/listsViews/optionsView";
 import { editOptionsView } from "../views/listsViews/editOptionsView";
 import { closeForm } from './projectsController.js';
 import { createItem, readStorage } from "../model/ItemModel";
-import { renderChecklist, addCheckbox, saveData } from "./checklistController";
+import { addChecklist, addCheckbox, saveData, renderChecklists } from "./checklistController";
 import { format } from 'date-fns'
+
+
+
 
 const itemState = {}
 
@@ -19,7 +22,7 @@ export const renderItems = (listId) => {
                 const listBoard = document.querySelectorAll(`[data-listid='${listId}']`)[0]
                 const itemContainer = listBoard.querySelector('.items-container')
                 itemContainer.insertAdjacentHTML('afterbegin', insertItem(item))
-                //renderItems(listId)
+                
             }
         })
     }
@@ -106,7 +109,7 @@ root.addEventListener('click', (e)=> {
             e.preventDefault()
             checklistTitleForm.classList.toggle("hidden")
             
-            renderChecklist()
+            addChecklist()
         })
 
         const checklistContainer = document.querySelector('.checklist-container')
@@ -140,6 +143,7 @@ root.addEventListener('click', (e)=> {
             if (item.id == itemId) {
 
                 root.insertAdjacentHTML("beforebegin", editOptionsView(item))
+                renderChecklists(item.id)
                 closeForm('#item-options, #item-options *')
 
             }
