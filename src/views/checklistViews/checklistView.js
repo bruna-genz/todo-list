@@ -1,7 +1,7 @@
-export const checklistView = (checklist) => {
+export const checklistView = (title, id) => {
     const checklistHtml = `
-    <form id="checklist-form" data-checklistID=${checklist.id}>
-        <h2><img src="../src/assets/images/grid.svg" alt="">${checklist.title}</h2>
+    <form id="checklist-form" data-checklistID=${id}>
+        <h2><img src="../src/assets/images/grid.svg" alt="">${title}</h2>
         <div class="checklist-items">
         
         </div>

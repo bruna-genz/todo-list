@@ -14,12 +14,12 @@ export const readStorage = () => {
 
 // checklist = [{id: 15654654, title: "checklist1 ", itemID = 61546, checkboxes = [] }, {id: 15654654, title: "checklist2 ", itemID = 61546, checkboxes = []}]
 
-export const createChecklist = (id, title, itemID) => {
+export const createChecklist = (id, title, itemID, checkboxes = null) => {
     const values = {
         id,
         title,
         itemID,
-        checkboxes : []
+        checkboxes
     }
     checklists.push(values)
 

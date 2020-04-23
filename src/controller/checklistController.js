@@ -1,6 +1,5 @@
 import {createChecklist, readStorage } from "../model/ChecklistModel"
 import { checklistView } from "../views/checklistViews/checklistView";
-import { insertPage } from "../routes/routesConfig";
 import uniqid from 'uniqid';
 
 /* checklistState = [
@@ -18,11 +17,10 @@ export const renderChecklists  = (itemId) => {
     if ( checklistState.checklists) {
         
         checklistState.checklists.forEach((checklist) => {
-           
             if (checklist.itemID == itemId) {     
                 const checklistContainer = document.querySelector('.checklist-container')
-                console.log(checklistState.checklists)
-                checklistContainer.insertAdjacentHTML("beforeend", checklistView(checklist))
+                checklistContainer.insertAdjacentHTML("beforeend", checklistView(checklist.title, checklist.id))
+                renderSavedCheckboxes(checklist, checklist.id)
             }
         })
     }
@@ -32,14 +30,23 @@ export const renderChecklists  = (itemId) => {
 export const addChecklist = () => {
     const checklistContainer = document.querySelector('.checklist-container')
     
-    checklistState.title = document.querySelector('#checklist-title').value
-    checklistState.id = uniqid()
+
+    //! Each time we change properties of checklistState, we modify the items that are already on the array
+    const title = document.querySelector('#checklist-title').value
+    const id = uniqid()
     if (checklistState.title == "") {
         alert("Checklist must have a name")
     } else {
-        checklistsArray.push(checklistState)
-        checklistContainer.insertAdjacentHTML("beforeend", checklistView(checklistState))
+        console.log(checklistsArray)
+        checklistsArray.push({title, id})
+        checklistContainer.insertAdjacentHTML("beforeend", checklistView(title, id))
     }    
+}
+
+const renderSavedCheckboxes = (checklist, checklistId) => {
+    checklist.checkboxes.forEach((checkbox) => {
+        renderCheckbox(checkbox, checklistId)
+    })
 }
 
 const createCheckbox = (checkbox, id) => {
@@ -55,9 +62,9 @@ const createCheckbox = (checkbox, id) => {
     })
 }
 
-const renderCheckbox = (label, itemID) => {
+const renderCheckbox = (label, checklistId) => {
     const checkboxHtml = `<div><input type="checkbox" name="checklist-items"><label for="checklist-items">${label}</label></div>`
-    const checklistForm = document.querySelectorAll(`[data-checklistid=${itemID}]`)[0]
+    const checklistForm = document.querySelectorAll(`[data-checklistid=${checklistId}]`)[0]
     const checkboxContainer = checklistForm.querySelector(".checklist-items")
 
     checkboxContainer.insertAdjacentHTML("beforeend", checkboxHtml)
@@ -66,21 +73,22 @@ const renderCheckbox = (label, itemID) => {
 export const addCheckbox = (addbtn) => {
     if (addbtn.matches('#add-checkbox-btn, #add-checkbox-btn *')) {
         const checklistName = addbtn.previousElementSibling.previousElementSibling.value
-        const itemID = addbtn.parentElement.dataset.checklistid
-        createCheckbox(checklistName, itemID)
-        renderCheckbox(checklistName, itemID)
+        const checklistId = addbtn.parentElement.dataset.checklistid
+        createCheckbox(checklistName, checklistId)
+        renderCheckbox(checklistName, checklistId)
     }
 }
 
-export const saveData = (itemID) => {
-    
+export const saveData = (checklistId) => {
     if (checklistsArray !== []) {
         checklistsArray.forEach(checklist => {
-            createChecklist(checklist.id, checklist.title, itemID, checklist.checkbox = null)
+            createChecklist(checklist.id, checklist.title, checklistId, checklist.checkboxes)
         })
     }
 
-    checklistsArray = []
+    //checklistsArray = []
+
+    
 }
 
 
