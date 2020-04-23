@@ -2942,11 +2942,11 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /*!********************************!*\
   !*** ./src/model/ListModel.js ***!
   \********************************/
-/*! exports provided: lists, createList */
+/*! exports provided: lists, readStorage, createList */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"lists\", function() { return lists; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"createList\", function() { return createList; });\n/* harmony import */ var uniqid__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! uniqid */ \"./node_modules/uniqid/index.js\");\n/* harmony import */ var uniqid__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(uniqid__WEBPACK_IMPORTED_MODULE_0__);\n\r\n\r\nconst lists = []\r\n\r\nconst createList = (title, projectID) => {\r\n    const values = {\r\n        \"id\" : uniqid__WEBPACK_IMPORTED_MODULE_0___default()(),\r\n        projectID,\r\n        title,\r\n    }\r\n    lists.push(values)\r\n   \r\n    return values;  \r\n}\n\n//# sourceURL=webpack:///./src/model/ListModel.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"lists\", function() { return lists; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"readStorage\", function() { return readStorage; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"createList\", function() { return createList; });\n/* harmony import */ var uniqid__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! uniqid */ \"./node_modules/uniqid/index.js\");\n/* harmony import */ var uniqid__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(uniqid__WEBPACK_IMPORTED_MODULE_0__);\n\r\n\r\nconst lists = []\r\n\r\nconst persistData = () => {\r\n    localStorage.setItem('projects',JSON.stringify(projects))\r\n}\r\n\r\nconst readStorage = () => {\r\n    const storage = JSON.parse(localStorage.getItem('projects'))\r\n    if (storage) projects = storage \r\n    return projects\r\n}\r\n\r\nconst createList = (title, projectID) => {\r\n    const values = {\r\n        \"id\" : uniqid__WEBPACK_IMPORTED_MODULE_0___default()(),\r\n        projectID,\r\n        title,\r\n    }\r\n    lists.push(values)\r\n   \r\n    return values;  \r\n}\n\n//# sourceURL=webpack:///./src/model/ListModel.js?");
 
 /***/ }),
 
@@ -2966,11 +2966,11 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /*!*************************!*\
   !*** ./src/model/db.js ***!
   \*************************/
-/*! exports provided: database */
+/*! exports provided: persistData, readstorage */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"database\", function() { return database; });\nconst database = (databaseName,database) => {\r\n    return {\r\n        persistData: () => {\r\n            localStorage.setItem(databaseName,JSON.stringify(database))\r\n        },\r\n        readStorage: () => {\r\n            const storage = JSON.parse(localStorage.getItem(databaseName))\r\n            if (storage) database = storage \r\n            return database\r\n        }\r\n\r\n    }\r\n\r\n}\r\n\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./src/model/db.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"persistData\", function() { return persistData; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"readstorage\", function() { return readstorage; });\nconst persistData = (databaseName,database) => {\r\n    localStorage.setItem(databaseName,JSON.stringify(database))\r\n}\r\n\r\nconst readstorage = (databaseName,database) => {\r\n    const storage = JSON.parse(localStorage.getItem(databaseName))\r\n    if (storage) database = storage \r\n    return database\r\n}\n\n//# sourceURL=webpack:///./src/model/db.js?");
 
 /***/ }),
 
