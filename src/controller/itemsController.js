@@ -24,10 +24,6 @@ export const renderItems = (listId) => {
     }
 }
 
-/*const isValidDate = (d) => {
-    return d instanceof Date && !isNaN(d);
-}*/
-
 const root = document.querySelector('.root')
 
 // 1) Add event listener to Add Item button
@@ -42,7 +38,6 @@ const actionToInput = (input,event,item) => {
 const insertItem = (item) => {
     let splitDate
     let date
-
     if (item.date) {
         splitDate = item.date.split("-")
         date = format(new Date(splitDate[0], splitDate[1], splitDate[2]), 'dd MMM yyyy')
@@ -85,7 +80,7 @@ root.addEventListener('click', (e)=> {
         itemState.priority = actionToInput(priorityInput,"click","priority")
         
         const dateInput = document.querySelector('.date')
-        itemState.date = new Date(actionToInput(dateInput,"change","date"))
+        itemState.date = actionToInput(dateInput,"change","date")
         
         // 4) Create item object when click save button and render on page
         const saveBtn = document.querySelector('#save-item-btn')
