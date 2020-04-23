@@ -67,15 +67,15 @@ root.addEventListener('click', (e)=> {
         closeForm('#item-options, #item-options *')
 
         // 3) Get values from inputs
-        //let itemName
+        
         const nameInput = document.querySelector('#list-name-input')
         itemState.title = actionToInput(nameInput,"keydown", "title")
         
-        //let itemDescription
+        
         const descriptionInput = document.querySelector('#description')
         itemState.description = actionToInput(descriptionInput,"keydown","description")
 
-        //let itemPriority
+       
         const priorityInput = document.querySelector('#priority')
         itemState.priority = actionToInput(priorityInput,"click","priority")
         
@@ -133,4 +133,11 @@ root.addEventListener('click', (e)=> {
             }
         })
     }
+// Step 2: acces to each item form
+    if (e.target.matches('.items, .items *')) {
+        console.log(e.target)
+    }
 })
+
+
+
