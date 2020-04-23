@@ -1,15 +1,15 @@
 import uniqid from 'uniqid';
 
-export const lists = []
+export let lists = []
 
 const persistData = () => {
-    localStorage.setItem('projects',JSON.stringify(projects))
+    localStorage.setItem('lists',JSON.stringify(lists))
 }
 
 export const readStorage = () => {
-    const storage = JSON.parse(localStorage.getItem('projects'))
-    if (storage) projects = storage 
-    return projects
+    const storage = JSON.parse(localStorage.getItem('lists'))
+    if (storage) lists = storage 
+    return lists
 }
 
 export const createList = (title, projectID) => {
@@ -19,6 +19,6 @@ export const createList = (title, projectID) => {
         title,
     }
     lists.push(values)
-   
-    return values;  
+    persistData()
+    return values  
 }

@@ -1,10 +1,23 @@
 import listFormView from '../views/listsViews/listFormView'
 import { listView } from '../views/listsViews/listView'
-import { createList } from '../model/ListModel'
+import { createList, readStorage } from '../model/ListModel'
 
 // Step 1: Add lists to current dashboard
 
 const listState = {}
+
+export const renderLists = (projectId) => {
+    listState.lists = readStorage()
+
+    if (listState.lists) {
+        listState.lists.forEach((list) => {
+            if (list.projectID === projectId) {
+                const addListBtn = document.querySelector('.add-list')
+                addListBtn.insertAdjacentHTML('beforebegin', listView(list))
+            }
+        })
+    }
+}
 
 const popForm = (btn) => {
     btn.innerHTML = ''

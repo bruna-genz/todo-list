@@ -5,19 +5,23 @@ import mainView from '../views/projectsViews/mainView'
 import { dashboardView } from '../views/listsViews/dashboardView';
 import { projectBoardView } from '../views/projectsViews/projectBoardView';
 import projectForm from '../views/projectsViews/projectFormView'
-import { createProject,readStorage} from '../model/ProjectModel'
+import { createProject, readStorage} from '../model/ProjectModel'
+import { renderLists } from "../controller/listsController"
 
 const state = {}
 
+// Selectors 
+let boardsContainer
+
 const renderProjects = () => {
-    console.log(state.projectsArray)
     if (state.projectsArray) {
-        
-        const boardsContainer = document.querySelector('.my-boards')
         state.projectsArray.forEach(project => {
+            boardsContainer = document.querySelector('.my-boards')
             boardsContainer.insertAdjacentHTML('afterbegin', projectBoardView(project))
         })
     }
+
+    setProjectEvent()
 }
 
 // Read storage
@@ -62,8 +66,7 @@ const submitForm = (form) => {
             if (state.title) {
                 e.preventDefault()
                 state.currentProject = createProject(state.title)
-                state.projectsArray.push(state.currentProject)
-                renderProjects()        
+                state.projectsArray.push(state.currentProject)       
                 configRoutes.insertPage(dashboardView(state.currentProject))
                 document.querySelector('nav').classList.add('green-nav')
             } else {
@@ -72,6 +75,28 @@ const submitForm = (form) => {
         }
     })
 }
+
+// Step 3: Redirect to specific project page when click on project board
+const setProjectEvent = () => {
+    boardsContainer.addEventListener('click', (e) => {
+        if (e.target.matches(".project-board")) {
+            console.log(e.target)
+            const projectID = e.target.dataset.projectid
+            state.projectsArray.forEach((project) => {
+                if (project.id === projectID) {
+                    configRoutes.insertPage(dashboardView(project))
+                    document.querySelector('nav').classList.add('green-nav')
+                    renderLists(projectID)
+                }
+            })
+        }
+    })
+}
+
+
+
+
+
 
 
 
