@@ -1,10 +1,30 @@
 import { optionsView } from "../views/listsViews/optionsView";
 import { closeForm } from './projectsController.js';
-import { createItem } from "../model/ItemModel";
+import { createItem, readStorage } from "../model/ItemModel";
 import { renderChecklist, addCheckbox, saveData } from "./checklistController";
 import { format } from 'date-fns'
 
 const itemState = {}
+
+export const renderItems = (listId) => {
+    itemState.items = readStorage()
+    
+    if (itemState.items) {
+        
+        itemState.items.forEach((item) => {
+           
+            if (item.listID == listId) {
+                
+                const listBoard = document.querySelectorAll(`[data-listid='${listId}']`)[0]
+                const itemContainer = listBoard.querySelector('.items-container')
+                console.log(listBoard)
+                console.log(itemContainer)
+                itemContainer.insertAdjacentHTML('afterbegin', insertItem(item))
+                //renderItems(listId)
+            }
+        })
+    }
+}
 
 const root = document.querySelector('.root')
 
@@ -16,16 +36,25 @@ const actionToInput = (input,event,item) => {
     })
 }
 
-const insertItem = (name) => {
-    const splitDate = itemState.date.split("-")
+const insertItem = (item) => {
+    let splitDate
+    let date
 
-    const date = format(new Date(splitDate[0], splitDate[1], splitDate[2]), 'dd MMM yyyy')
-    const dueDate = `<button class="due-date"><img src="../src/assets/images/clock.svg" alt="">${date}</button>`
+    if (item.date ) {
+        splitDate = item.date.split("-")
+        date = format(new Date(splitDate[0], splitDate[1], splitDate[2]), 'dd MMM yyyy')
+    } else {   
+        date = ""
+    }
+    
+    
+    
+    const dueDate = `<button class="due-date"><img src="../src/assets/images/clock.svg" alt="">${date }</button>`
 
-    return `<div class="items" data-itemid="${itemState.id}">
-                <button class="priority ${itemState.priority}"></button>
-                <p>${name}</p>
-                ${ itemState.date == undefined ? "" : dueDate }
+    return `<div class="items" data-itemid="${item.id}">
+                <button class="priority ${item.priority}"></button>
+                <p>${item.name}</p>
+                ${ dueDate }
             </div>`
 }
 root.addEventListener('click', (e)=> {
@@ -99,7 +128,7 @@ root.addEventListener('click', (e)=> {
             if (itemState.name) {
                 const itemInfo = createItem(itemState.name, parentListID, itemState.description, itemState.date, itemState.priority)
                 itemState.id = itemInfo.id
-                itemsContainer.insertAdjacentHTML('afterbegin', insertItem(itemState.name))
+                itemsContainer.insertAdjacentHTML('afterbegin', insertItem(itemState))
                 saveData(itemState.id)
                 itemsForm.parentNode.removeChild(itemsForm)
             } else {

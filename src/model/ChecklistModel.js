@@ -13,7 +13,7 @@ export const createChecklist = (id, title, itemID) => {
     }
     checklists.push(values)
 
-    console.log(checklists)
+
     return values;  
 }
 

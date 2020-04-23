@@ -1,6 +1,7 @@
 import listFormView from '../views/listsViews/listFormView'
 import { listView } from '../views/listsViews/listView'
 import { createList, readStorage } from '../model/ListModel'
+import { renderItems } from "./itemsController";
 
 // Step 1: Add lists to current dashboard
 
@@ -14,6 +15,7 @@ export const renderLists = (projectId) => {
             if (list.projectID === projectId) {
                 const addListBtn = document.querySelector('.add-list')
                 addListBtn.insertAdjacentHTML('beforebegin', listView(list))
+                renderItems(list.id)
             }
         })
     }

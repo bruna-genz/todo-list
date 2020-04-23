@@ -1,6 +1,17 @@
 import uniqid from 'uniqid';
 
-export const items = []
+export let items = []
+
+const persistData = () => {
+    localStorage.setItem('items',JSON.stringify(items))
+}
+
+export const readStorage = () => {
+    const storage = JSON.parse(localStorage.getItem('items'))
+    if (storage) items = storage 
+    return items
+}
+
 
 export const createItem = (title, listID, description, dueDate, priority) => {
     const values = {
@@ -12,6 +23,6 @@ export const createItem = (title, listID, description, dueDate, priority) => {
         priority,
     }
     items.push(values)
-
+    persistData()
     return values;  
 }

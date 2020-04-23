@@ -80,7 +80,6 @@ const submitForm = (form) => {
 const setProjectEvent = () => {
     boardsContainer.addEventListener('click', (e) => {
         if (e.target.matches(".project-board")) {
-            console.log(e.target)
             const projectID = e.target.dataset.projectid
             state.projectsArray.forEach((project) => {
                 if (project.id === projectID) {
