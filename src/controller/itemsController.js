@@ -1,4 +1,5 @@
-import { optionsView } from "../views/listsViews/optionsView";
+import { optionsView} from "../views/listsViews/optionsView";
+import { editOptionsView } from "../views/listsViews/editOptionsView";
 import { closeForm } from './projectsController.js';
 import { createItem, readStorage } from "../model/ItemModel";
 import { renderChecklist, addCheckbox, saveData } from "./checklistController";
@@ -56,7 +57,6 @@ const insertItem = (item) => {
 }
 root.addEventListener('click', (e)=> {
     if (e.target.matches('.add-item, .add-item *')) {
-        
         // Save parent list ID and name
         const parentList = e.target.closest('.list');
         const parentListID = e.target.closest('.list').dataset.listid
@@ -71,11 +71,9 @@ root.addEventListener('click', (e)=> {
         const nameInput = document.querySelector('#list-name-input')
         itemState.title = actionToInput(nameInput,"keydown", "title")
         
-        
         const descriptionInput = document.querySelector('#description')
         itemState.description = actionToInput(descriptionInput,"keydown","description")
 
-       
         const priorityInput = document.querySelector('#priority')
         itemState.priority = actionToInput(priorityInput,"click","priority")
         
@@ -123,7 +121,7 @@ root.addEventListener('click', (e)=> {
         saveBtn.addEventListener('click', ()=> {
 
             if (itemState.title) {
-                const itemInfo = createItem(itemState.title, parentListID, itemState.description, itemState.date, itemState.priority)
+                const itemInfo = createItem(itemState.title, parentListID, parentListName, itemState.description, itemState.date, itemState.priority)
                 itemState.id = itemInfo.id
                 itemsContainer.insertAdjacentHTML('afterbegin', insertItem(itemState))
                 saveData(itemState.id)
@@ -135,7 +133,19 @@ root.addEventListener('click', (e)=> {
     }
 // Step 2: acces to each item form
     if (e.target.matches('.items, .items *')) {
-        console.log(e.target)
+        const parentList = e.target.closest('.items')
+        const itemId = parentList.dataset.itemid
+        
+        itemState.items.forEach((item) => {
+            if (item.id == itemId) {
+
+                root.insertAdjacentHTML("beforebegin", editOptionsView(item))
+                closeForm('#item-options, #item-options *')
+
+            }
+        })
+
+
     }
 })
 

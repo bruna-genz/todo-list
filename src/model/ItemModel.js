@@ -13,10 +13,11 @@ export const readStorage = () => {
 }
 
 
-export const createItem = (title, listID, description, date, priority) => {
+export const createItem = (title, listID, listName, description, date, priority) => {
     const values = {
         "id" : uniqid(),
         listID,
+        listName,
         title,
         description,
         date,
