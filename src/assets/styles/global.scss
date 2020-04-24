@@ -31,3 +31,14 @@ body {
 .hidden {
     display: none;
 }
+
+.delete-btn {  
+    width: 18px;
+    background: none;
+    border: none;    
+    visibility: hidden;
+    &:hover {
+        cursor:alias;
+        img {filter: invert(.89);}
+    }
+}

@@ -86,16 +86,10 @@ main {
                 font-weight: bold;
                 justify-content: space-between;
                 align-items: end;
-                button {  
-                    width: 18px;
-                    background: none;
-                    border: none;    
-                    visibility: hidden;
+                .delete-btn {  
+                   
                     img {filter: invert(1);}
-                    &:hover {
-                        cursor:alias;
-                        img {filter: invert(.89);}
-                    }
+                   
                 }
                 &:hover {
                     background-color: #338148;

@@ -56,7 +56,10 @@ const insertItem = (item) => {
                 <button class="priority ${item.priority}"></button>
                 <p>${item.title}</p>
                 ${ date == "" ? "" : dueDate }
-            </div>`
+                <button class="delete-btn"><img src="../src/assets/images/bin.svg" alt="menu icon" class="nav-icon"></button>
+            </div>
+            
+            `
 }
 root.addEventListener('click', (e)=> {
     if (e.target.matches('.add-item, .add-item *')) {
