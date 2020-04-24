@@ -93,8 +93,7 @@ const setProjectEvent = () => {
 }
 
 // Navbar minicontroller 
-
-const homeLinks = [...document.getElementsByClassName('home-link')]
+/*const homeLinks = [...document.getElementsByClassName('home-link')]
 console.log(homeLinks)
 homeLinks.forEach((link)=> {
     link.addEventListener('click', ()=> {
@@ -103,7 +102,7 @@ homeLinks.forEach((link)=> {
         renderProjects()
     })
 
-})
+})*/
 
 
 
