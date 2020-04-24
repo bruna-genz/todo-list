@@ -7,6 +7,31 @@ nav {
     div {
         display: flex;
         align-items: center;
+        .home-link {
+            display: flex;
+            div {
+                padding: 0 !important;
+            }
+            input {
+                background-size: contain;
+                background-repeat: no-repeat;
+                border: none;
+                height: 22px;
+                filter: invert(1);
+                margin: 3px;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            #home-link {
+                background-image: url(../images/home-run.svg);
+                width: 20px;
+            }
+            #boards-link {
+                background-image: url(../images/to-do-list.svg);
+                width: 84px;
+            }
+        }
         
         div {
             &:hover {

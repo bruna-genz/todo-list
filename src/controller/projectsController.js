@@ -91,21 +91,3 @@ const setProjectEvent = () => {
         }
     })
 }
-
-// Navbar minicontroller 
-/*const homeLinks = [...document.getElementsByClassName('home-link')]
-console.log(homeLinks)
-homeLinks.forEach((link)=> {
-    link.addEventListener('click', ()=> {
-        configRoutes.insertPage(mainView)
-        document.querySelector('nav').classList.remove('green-nav')
-        renderProjects()
-    })
-
-})*/
-
-
-
-
-
-
