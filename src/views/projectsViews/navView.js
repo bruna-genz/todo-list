@@ -2,8 +2,8 @@ export default `
 <nav>
         <div>
             <div><img src="../src/assets/images/grid.svg" alt="menu icon" class="nav-icon"></div>
-            <div><img src="../src/assets/images/home-run.svg" alt="home icon"></div>
-            <div><img src="../src/assets/images/to-do-list.svg" alt="list icon"><p>Boards</p></div>
+            <div class="home-link"><img src="../src/assets/images/home-run.svg"  alt="home icon"></div>
+            <div class="home-link"><img src="../src/assets/images/to-do-list.svg" alt="list icon"><p>Boards</p></div>
             <div><input type="text"><img src="../src/assets/images/search.svg" alt="search icon"></div>
         </div>
         <div>
