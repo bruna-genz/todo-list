@@ -24,5 +24,13 @@ export const createProject = (title) => {
     return values;
 }
 
+export const deleteProject = (projectId) => {
+    projects.forEach((project, i) => {
+        if (project.id === projectId) {
+            projects.splice(i, 1)
+            persistData()
+        }
+    })
+}
 
 

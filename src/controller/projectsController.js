@@ -5,7 +5,7 @@ import mainView from '../views/projectsViews/mainView'
 import { dashboardView } from '../views/listsViews/dashboardView';
 import { projectBoardView } from '../views/projectsViews/projectBoardView';
 import projectForm from '../views/projectsViews/projectFormView'
-import { createProject, readStorage} from '../model/ProjectModel'
+import { createProject, readStorage, deleteProject} from '../model/ProjectModel'
 import { renderLists } from "../controller/listsController"
 
 const state = {}
@@ -21,14 +21,15 @@ const renderProjects = () => {
         })
     }
 
-    setProjectEvent()
-    setDeleteEvent()
+    
 }
 
 // Read storage
 window.addEventListener('load', () => {    
     state.projectsArray = readStorage()
     renderProjects()
+    setDeleteEvent()
+    setProjectEvent()
 })
 
 // Step 0: Load page elements
@@ -39,7 +40,6 @@ configRoutes.insertPage(mainView)
 // Step 1: Pop form when addBoardBtn is clicked 
 
 const addBoardBtn = document.querySelector('.add-board')
-
 
 export const closeForm = (elements) => {
     const darkBackground = document.querySelector(".dark-background")
@@ -94,10 +94,19 @@ const setProjectEvent = () => {
 }
 
 //Step 4 delete project from localStorage 
+const updateRenderProjects = () => {
+    state.projectsArray = readStorage()
+    boardsContainer.innerHTML = ""
+    boardsContainer.insertAdjacentHTML("beforeend", `<a class="add-board">Create a new board</a>`)
+    renderProjects()
+}
+
 const setDeleteEvent = () => {
     boardsContainer.addEventListener('click',(e) => {
         if (e.target.matches('.delete-btn, .delete-btn *') ){
-            console.log(e.target.closest('.tests').dataset.projectid)
+            const projectId = e.target.closest('.tests').dataset.projectid
+            deleteProject(projectId)
+            updateRenderProjects()
         }
     })
 }
