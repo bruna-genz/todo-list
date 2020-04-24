@@ -22,6 +22,7 @@ const renderProjects = () => {
     }
 
     setProjectEvent()
+    setDeleteEvent()
 }
 
 // Read storage
@@ -88,6 +89,15 @@ const setProjectEvent = () => {
                     renderLists(projectID)
                 }
             })
+        }
+    })
+}
+
+//Step 4 delete project from localStorage 
+const setDeleteEvent = () => {
+    boardsContainer.addEventListener('click',(e) => {
+        if (e.target.matches('.delete-btn, .delete-btn *') ){
+            console.log(e.target.closest('.tests').dataset.projectid)
         }
     })
 }
