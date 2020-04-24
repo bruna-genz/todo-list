@@ -13,7 +13,7 @@ export const readStorage = () => {
     if (storage) projects = storage 
     return projects
 }
- 
+
 export const createProject = (title) => {
     const values = {
         "id" : uniqid(),
