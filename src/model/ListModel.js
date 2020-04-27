@@ -22,3 +22,13 @@ export const createList = (title, projectID) => {
     persistData()
     return values  
 }
+
+export const deleteList = (listID) => {
+    lists.forEach((list, i) => {
+        if (list.id === listID) {
+            lists.splice(i, 1)
+            persistData()
+        }
+    }) 
+}
+

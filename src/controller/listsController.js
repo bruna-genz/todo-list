@@ -1,6 +1,6 @@
 import listFormView from '../views/listsViews/listFormView'
 import { listView } from '../views/listsViews/listView'
-import { createList, readStorage } from '../model/ListModel'
+import { createList, readStorage, deleteList } from '../model/ListModel'
 import { renderItems } from "./itemsController";
 
 // Step 1: Add lists to current dashboard
@@ -19,6 +19,8 @@ export const renderLists = (projectId) => {
             }
         })
     }
+
+    setDeleteEvent()
 }
 
 const popForm = (btn) => {
@@ -73,3 +75,23 @@ root.addEventListener('click',(e)=>{
         closeForm(submitBtn,addListBtn)
     }
 })
+
+// Step 2: delete lists
+let listContainer
+const updateRenderLists = () => {
+    listState.lists = readStorage()
+    listContainer.innerHTML = ""
+    listContainer.insertAdjacentHTML('afterbegin', `<button class="add-list"><img src="../src/assets/images/plus.svg" alt=""><p>Add list</p></button>`)
+    renderLists(listState.currentList.projectID)
+}
+
+const setDeleteEvent = () => {
+    listContainer = document.querySelector("#list-container")
+    listContainer.addEventListener('click',(e) => {
+        if (e.target.matches('.delete-btn, .delete-btn *') ){
+            const listID = e.target.closest(".list").dataset.listid
+            deleteList(listID)
+            updateRenderLists()
+        }
+    })
+}

@@ -32,11 +32,27 @@
             border-radius: 5px;
             //overflow-y: scroll;
             max-height: 95%;
-            width: auto;            
-            h1 {
-                margin: 10px;
-                font-size: 13px;
-            }
+            width: auto;  
+            .list-header {
+                display: flex;
+                justify-content: space-between;
+                h1 {
+                    margin: 10px;
+                    font-size: 13px;
+                }
+                &:hover {
+                    .delete-btn {
+                        visibility: visible;
+                        filter: invert(1);
+                        margin-right: 7px;
+                        img {
+                            width: 13px;
+                            height: 13px;
+                        }
+                    }
+                }
+
+            }          
             .items-container {
                 overflow-x: auto;
                 max-height: 25em;
@@ -60,6 +76,16 @@
                     border-radius: 5px;
                     border-bottom: 1px solid rgb(100, 98, 98);
                     font-size: 13px;
+                    .delete-btn{
+                        position: relative;
+                        left: 11em;
+                        img {
+                            filter: invert(0.5);
+                            width: 13px;
+                            height: 13px;
+                        }
+                        
+                    }
                     
                     .priority {
                         display: none;
@@ -112,13 +138,6 @@
                     }
                 }
                 
-            }
-            &:hover {
-                  
-                .delete-btn {
-                    visibility: visible;
-                    filter: invert(1);
-                }
             }
             
             .add-item {
