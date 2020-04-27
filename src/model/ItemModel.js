@@ -27,3 +27,12 @@ export const createItem = (title, listID, listName, description, date, priority)
     persistData()
     return values;  
 }
+
+export const deleteItemData = (itemID) => {
+    items.forEach((item, i) => {
+        if (item.id === itemID) {
+            items.splice(i, 1)
+            persistData()
+        }
+    })
+}

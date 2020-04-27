@@ -1,7 +1,7 @@
 import { optionsView} from "../views/listsViews/optionsView";
 import { editOptionsView } from "../views/listsViews/editOptionsView";
 import { closeForm } from './projectsController.js';
-import { createItem, readStorage } from "../model/ItemModel";
+import { createItem, readStorage, deleteItemData } from "../model/ItemModel";
 import { addChecklist, addCheckbox, saveData, renderChecklists } from "./checklistController";
 import { format } from 'date-fns'
 
@@ -14,15 +14,12 @@ export const renderItems = (listId) => {
     itemState.items = readStorage()
     
     if (itemState.items) {
-        
         itemState.items.forEach((item) => {
-           
             if (item.listID == listId) {
                 
                 const listBoard = document.querySelectorAll(`[data-listid='${listId}']`)[0]
                 const itemContainer = listBoard.querySelector('.items-container')
                 itemContainer.insertAdjacentHTML('afterbegin', insertItem(item))
-                
             }
         })
     }
@@ -63,8 +60,6 @@ const insertItem = (item) => {
 }
 root.addEventListener('click', (e)=> {
     if (e.target.matches('.add-item, .add-item *')) {
-       
-        
         // Save parent list ID and name
         const parentList = e.target.closest('.list');
         const parentListID = e.target.closest('.list').dataset.listid
@@ -138,48 +133,57 @@ root.addEventListener('click', (e)=> {
                 alert("Item must have a title")
             }
         })
-        
+
     } 
-// Step 2: acces to each item form
+
+    // Step 2: acces to each item form
     if (e.target.matches('.items, .items *')) {
-        const parentList = e.target.closest('.items')
-        const itemId = parentList.dataset.itemid
-        
-        itemState.items.forEach((item) => {
-            if (item.id == itemId) {
 
-                root.insertAdjacentHTML("beforebegin", editOptionsView(item))
-                renderChecklists(item.id)
-                closeForm('#item-options, #item-options *')
+        // if delete btn clicked: delete item
+        if (e.target.matches('.delete-item-btn, .delete-item-btn *')) {
+            deleteItem(e)
 
-            }
-        })
+        // otherwise, pop edit form
+        } else {
+            const parentList = e.target.closest('.items')
+            const itemId = parentList.dataset.itemid
+            
+            itemState.items.forEach((item) => {
+                if (item.id == itemId) {
 
+                    root.insertAdjacentHTML("beforebegin", editOptionsView(item))
+                    renderChecklists(item.id)
+                    closeForm('#item-options, #item-options *')
 
+                }
+            })
+        }
     }
-     
-
 })
 
 // Step 3: Delete Items
-/* 
-let itemsContainerArray
-const updateRenderItems = () => {
+const updateRenderItems = (listID) => {
     itemState.items = readStorage()
-    itemContainer.innerHTML = ""
-    itemContainer.insertAdjacentHTML('afterbegin', `<button class="add-list"><img src="../src/assets/images/plus.svg" alt=""><p>Add list</p></button>`)
-    console.log(itemState)
-    //renderLists(itemState.currentList.projectID)
+    const listBoard = document.querySelectorAll(`[data-listid='${listID}']`)[0]
+    const itemContainer = listBoard.querySelector('.items-container')
+    itemContainer.innerHTML = "" 
+    renderItems(listID)
 }
 
-const deleteItem = () => {
-    console.log(itemState)
-    //const itemID = e.target.closest(".items").dataset.itemid
-    //console.log(itemID)
-    //deleteList(itemID)
-    //updateRenderLists()
-
+const deleteItem = (e) => {
+    const itemID = e.target.closest(".items").dataset.itemid
+    const listID = getListID(itemID)
+    deleteItemData(itemID)
+    updateRenderItems(listID)
 }
-*/
 
+const getListID = (itemID) => {
+    let listId
+    itemState.items.forEach((item) => {
+        if (item.id === itemID) {
+            listId = item.listID
+        }
+    })
 
+    return listId
+}
