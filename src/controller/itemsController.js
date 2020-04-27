@@ -56,13 +56,15 @@ const insertItem = (item) => {
                 <button class="priority ${item.priority}"></button>
                 <p>${item.title}</p>
                 ${ date == "" ? "" : dueDate }
-                <button class="delete-btn"><img src="../src/assets/images/bin.svg" alt="menu icon" class="nav-icon"></button>
+                <button class="delete-item-btn"><img src="../src/assets/images/bin.svg" alt="menu icon" class="nav-icon"></button>
             </div>
             
             `
 }
 root.addEventListener('click', (e)=> {
     if (e.target.matches('.add-item, .add-item *')) {
+       
+        
         // Save parent list ID and name
         const parentList = e.target.closest('.list');
         const parentListID = e.target.closest('.list').dataset.listid
@@ -136,7 +138,8 @@ root.addEventListener('click', (e)=> {
                 alert("Item must have a title")
             }
         })
-    }
+        
+    } 
 // Step 2: acces to each item form
     if (e.target.matches('.items, .items *')) {
         const parentList = e.target.closest('.items')
@@ -154,7 +157,29 @@ root.addEventListener('click', (e)=> {
 
 
     }
+     
+
 })
 
+// Step 3: Delete Items
+/* 
+let itemsContainerArray
+const updateRenderItems = () => {
+    itemState.items = readStorage()
+    itemContainer.innerHTML = ""
+    itemContainer.insertAdjacentHTML('afterbegin', `<button class="add-list"><img src="../src/assets/images/plus.svg" alt=""><p>Add list</p></button>`)
+    console.log(itemState)
+    //renderLists(itemState.currentList.projectID)
+}
+
+const deleteItem = () => {
+    console.log(itemState)
+    //const itemID = e.target.closest(".items").dataset.itemid
+    //console.log(itemID)
+    //deleteList(itemID)
+    //updateRenderLists()
+
+}
+*/
 
 

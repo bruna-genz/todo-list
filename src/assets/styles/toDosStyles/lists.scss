@@ -76,7 +76,7 @@
                     border-radius: 5px;
                     border-bottom: 1px solid rgb(100, 98, 98);
                     font-size: 13px;
-                    .delete-btn{
+                    .delete-item-btn{
                         position: relative;
                         left: 11em;
                         img {
@@ -117,7 +117,7 @@
                     
                     &:hover {
                         cursor: pointer;
-                        .delete-btn {
+                        .delete-item-btn {
                             visibility: visible;
                             filter: invert(1);
                         }

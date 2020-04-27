@@ -44,7 +44,7 @@ export const editOptionsView = (item) => {
                     </div>
                     
                 </button>
-                <button id ="save-item-btn" class="save-btn">
+                <button id ="edit-item-btn" class="save-btn">
                     <p>Edit</p>
                 </button>
             </div>
