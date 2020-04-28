@@ -10,6 +10,12 @@ import { format } from 'date-fns'
 
 const itemState = {}
 
+let nameInput
+let descriptionInput
+let priorityInput
+let dateInput
+
+
 export const renderItems = (listId) => {
     itemState.items = readStorage()
     
@@ -58,6 +64,9 @@ const insertItem = (item) => {
             
             `
 }
+
+
+
 root.addEventListener('click', (e)=> {
     if (e.target.matches('.add-item, .add-item *')) {
         // Save parent list ID and name
@@ -71,16 +80,17 @@ root.addEventListener('click', (e)=> {
 
         // 3) Get values from inputs
         
-        const nameInput = document.querySelector('#list-name-input')
+        
+        nameInput = document.querySelector('#list-name-input')
         itemState.title = actionToInput(nameInput,"keydown", "title")
         
-        const descriptionInput = document.querySelector('#description')
+        descriptionInput = document.querySelector('#description')
         itemState.description = actionToInput(descriptionInput,"keydown","description")
 
-        const priorityInput = document.querySelector('#priority')
+        priorityInput = document.querySelector('#priority')
         itemState.priority = actionToInput(priorityInput,"click","priority")
         
-        const dateInput = document.querySelector('.date')
+        dateInput = document.querySelector('.date')
         itemState.date = actionToInput(dateInput,"change","date")
         
         // 4) Create item object when click save button and render on page
@@ -151,8 +161,10 @@ root.addEventListener('click', (e)=> {
             itemState.items.forEach((item) => {
                 if (item.id == itemId) {
 
+                    
                     root.insertAdjacentHTML("beforebegin", editOptionsView(item))
                     renderChecklists(item.id)
+                    saveNewData(item)
                     closeForm('#item-options, #item-options *')
 
                 }
@@ -161,7 +173,7 @@ root.addEventListener('click', (e)=> {
     }
 })
 
-// Step 3: Delete Items
+// Action: Delete Items
 const updateRenderItems = (listID) => {
     itemState.items = readStorage()
     const listBoard = document.querySelectorAll(`[data-listid='${listID}']`)[0]
@@ -186,4 +198,29 @@ const getListID = (itemID) => {
     })
 
     return listId
+}
+
+//Action: Edit
+
+const saveNewData = (item) => {
+    const editBtn = document.querySelector('#edit-item-btn')
+    editBtn.addEventListener('click',()=> {
+        itemState.items.forEach((currentItem)=> {
+            console.log(itemState)
+           if (item.id == currentItem.id) { 
+                nameInput = document.querySelector('#list-name-input')
+                descriptionInput = document.querySelector('#description')
+                priorityInput = document.querySelector('#priority')
+                dateInput = document.querySelector('.date')
+                currentItem.title = actionToInput(nameInput,"keydown", "title")
+                console.log(currentItem)
+                currentItem.description = actionToInput(descriptionInput,"keydown","description")
+                currentItem.priority = actionToInput(priorityInput,"click","priority")
+                currentItem.date = actionToInput(dateInput,"change","date")
+                console.log(itemState)
+                
+            }
+        })
+        
+    }) 
 }
