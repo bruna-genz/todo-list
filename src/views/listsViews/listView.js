@@ -1,5 +1,5 @@
 export const listView = (list) => {
-    const listHTML = `<div class="list" data-listID="${list.id}" data-listtitle="${list.title}">
+  const listHTML = `<div class="list" data-listID="${list.id}" data-listtitle="${list.title}">
         <div class="list-header">
             <h1>${list.title}</h1>
             <button class="delete-btn"><img src="../src/assets/images/bin.svg" alt="menu icon" class="nav-icon"></button>
@@ -11,7 +11,7 @@ export const listView = (list) => {
             <img src="../src/assets/images/plus.svg" alt=""> 
             <p>Add Item</p> 
             </button>
-        </div>`
+        </div>`;
 
-    return listHTML
-}
+  return listHTML;
+};

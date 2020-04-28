@@ -17,4 +17,4 @@ export default ` <main>
         <a class="add-board">Create a new project</a>
     </div>
 </div>
-</main>`
+</main>`;

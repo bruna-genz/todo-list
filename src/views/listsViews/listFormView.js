@@ -5,4 +5,4 @@ export default `
         <input id="new-list-btn" type="submit" value="Add list">
         <img id="close-icon" src="../src/assets/images/close.svg" alt="">
     </div>
-</form>`
+</form>`;

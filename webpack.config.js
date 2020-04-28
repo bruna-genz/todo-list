@@ -1,8 +1,8 @@
 const path = require('path');
 
 module.exports = {
-  entry: { 
-    main: ['./src/controller/projectsController.js','./src/controller/listsController.js', './src/controller/itemsController.js']
+  entry: {
+    main: ['./src/controller/projectsController.js', './src/controller/listsController.js', './src/controller/itemsController.js'],
   },
   output: {
     filename: 'main.js',
@@ -16,7 +16,7 @@ module.exports = {
           'style-loader',
           'css-loader',
           'sass-loader',
-        ]
+        ],
       },
       {
         test: /\.(png|svg|jpg|gif)$/,

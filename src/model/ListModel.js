@@ -1,34 +1,33 @@
 import uniqid from 'uniqid';
 
-export let lists = []
+export let lists = [];
 
 const persistData = () => {
-    localStorage.setItem('lists',JSON.stringify(lists))
-}
+  localStorage.setItem('lists', JSON.stringify(lists));
+};
 
 export const readStorage = () => {
-    const storage = JSON.parse(localStorage.getItem('lists'))
-    if (storage) lists = storage 
-    return lists
-}
+  const storage = JSON.parse(localStorage.getItem('lists'));
+  if (storage) lists = storage;
+  return lists;
+};
 
 export const createList = (title, projectID) => {
-    const values = {
-        "id" : uniqid(),
-        projectID,
-        title,
-    }
-    lists.push(values)
-    persistData()
-    return values  
-}
+  const values = {
+    id: uniqid(),
+    projectID,
+    title,
+  };
+  lists.push(values);
+  persistData();
+  return values;
+};
 
 export const deleteList = (listID) => {
-    lists.forEach((list, i) => {
-        if (list.id === listID) {
-            lists.splice(i, 1)
-            persistData()
-        }
-    }) 
-}
-
+  lists.forEach((list, i) => {
+    if (list.id === listID) {
+      lists.splice(i, 1);
+      persistData();
+    }
+  });
+};

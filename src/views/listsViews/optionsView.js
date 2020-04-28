@@ -1,5 +1,5 @@
-export const optionsView = (listName) => { 
-    const optionsHTML = `<div class="dark-background">
+export const optionsView = (listName) => {
+  const optionsHTML = `<div class="dark-background">
         <div id="item-options">
             <div id="left-options">
                 <div id="item-title">
@@ -51,7 +51,7 @@ export const optionsView = (listName) => {
             </div>
         </div>
     </div>
-`
+`;
 
-    return optionsHTML
-}
+  return optionsHTML;
+};

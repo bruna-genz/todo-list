@@ -4,4 +4,4 @@ export default `
             <input type="text" id="description" name="description" placeholder="Add project name"><br><br>
         </form>
     </div>
-`
+`;

@@ -22,6 +22,9 @@
   "homepage": "https://github.com/bruna-genz/todo-list#readme",
   "devDependencies": {
     "css-loader": "^3.5.2",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
     "file-loader": "^6.0.0",
     "sass": "^1.26.3",
     "sass-loader": "^8.0.2",

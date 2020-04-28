@@ -1,5 +1,5 @@
-export const dashboardView = (currentProject) => { 
-    const dashboardHtml = `
+export const dashboardView = (currentProject) => {
+  const dashboardHtml = `
 <div class="to-dos">
 <div id="sub-nav">
     <div>
@@ -24,6 +24,6 @@ export const dashboardView = (currentProject) => {
      </button>
 </div>
 </div>
-`
-    return dashboardHtml
-}
+`;
+  return dashboardHtml;
+};

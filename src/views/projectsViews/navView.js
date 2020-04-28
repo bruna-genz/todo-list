@@ -19,4 +19,4 @@ export default `
         <div><img src="../src/assets/images/user.svg" alt="user icon"></div>
     </div>
 </nav>
-`
+`;
