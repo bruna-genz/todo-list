@@ -20,8 +20,6 @@ const renderProjects = () => {
             boardsContainer.insertAdjacentHTML('afterbegin', projectBoardView(project))
         })
     }
-
-    
 }
 
 // Read storage

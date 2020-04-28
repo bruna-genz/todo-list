@@ -3,7 +3,6 @@ import uniqid from 'uniqid';
 
 let projects = []
 
-
 const persistData = () => {
     localStorage.setItem('projects', JSON.stringify(projects))
 }
