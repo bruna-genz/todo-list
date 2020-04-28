@@ -2,7 +2,7 @@ import uniqid from 'uniqid';
 
 export let items = []
 
-const persistData = () => {
+export const persistData = () => {
     localStorage.setItem('items',JSON.stringify(items))
 }
 

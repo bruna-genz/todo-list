@@ -1,12 +1,9 @@
+import { insertItemView } from "../views/itemsView/itemView"
 import { optionsView} from "../views/listsViews/optionsView";
 import { editOptionsView } from "../views/listsViews/editOptionsView";
-import { closeForm } from './projectsController.js';
-import { createItem, readStorage, deleteItemData } from "../model/ItemModel";
+import { setCloseFormEvent } from './projectsController.js';
+import { createItem, readStorage, deleteItemData, persistData } from "../model/ItemModel";
 import { addChecklist, addCheckbox, saveData, renderChecklists } from "./checklistController";
-import { format } from 'date-fns'
-
-
-
 
 const itemState = {}
 
@@ -15,6 +12,17 @@ let descriptionInput
 let priorityInput
 let dateInput
 
+const closeForm = () => {
+    const darkBackground = document.querySelector(".dark-background")
+    darkBackground.parentNode.removeChild(darkBackground)
+}
+
+const selectInputs = () => {
+    nameInput = document.querySelector('#list-name-input')
+    descriptionInput = document.querySelector('#description')
+    priorityInput = document.querySelector('#priority')
+    dateInput = document.querySelector('.date')
+}
 
 export const renderItems = (listId) => {
     itemState.items = readStorage()
@@ -25,7 +33,7 @@ export const renderItems = (listId) => {
                 
                 const listBoard = document.querySelectorAll(`[data-listid='${listId}']`)[0]
                 const itemContainer = listBoard.querySelector('.items-container')
-                itemContainer.insertAdjacentHTML('afterbegin', insertItem(item))
+                itemContainer.insertAdjacentHTML('afterbegin', insertItemView(item))
             }
         })
     }
@@ -41,31 +49,6 @@ const actionToInput = (input, event, item) => {
     })
 }
 
-const insertItem = (item) => {
-    let splitDate
-    let date
-    if (item.date) {
-        splitDate = item.date.split("-")
-        date = format(new Date(splitDate[0], splitDate[1], splitDate[2]), 'dd MMM yyyy')
-    } else {  
-        date = ""
-    }
-    
-    
-    const dueDate = `<button class="due-date"><img src="../src/assets/images/clock.svg" alt="">${date}</button>`
-
-    return `<div class="items" data-itemid="${item.id}">
-                <button class="priority ${item.priority}"></button>
-                <p>${item.title}</p>
-                ${ date == "" ? "" : dueDate }
-                <button class="delete-item-btn"><img src="../src/assets/images/bin.svg" alt="menu icon" class="nav-icon"></button>
-            </div>
-            
-            `
-}
-
-
-
 root.addEventListener('click', (e)=> {
     if (e.target.matches('.add-item, .add-item *')) {
         // Save parent list ID and name
@@ -75,21 +58,15 @@ root.addEventListener('click', (e)=> {
         
         // 2) Pop up item form
         root.insertAdjacentHTML("beforebegin", optionsView(parentListName))
-        closeForm('#item-options, #item-options *')
+        setCloseFormEvent('#item-options, #item-options *')
 
         // 3) Get values from inputs
         
+        selectInputs()
         
-        nameInput = document.querySelector('#list-name-input')
         itemState.title = actionToInput(nameInput,"keydown", "title")
-        
-        descriptionInput = document.querySelector('#description')
         itemState.description = actionToInput(descriptionInput,"keydown","description")
-
-        priorityInput = document.querySelector('#priority')
         itemState.priority = actionToInput(priorityInput,"click","priority")
-        
-        dateInput = document.querySelector('.date')
         itemState.date = actionToInput(dateInput,"change","date")
         
         // 4) Create item object when click save button and render on page
@@ -129,20 +106,19 @@ root.addEventListener('click', (e)=> {
            
         })
         
-        const itemsForm = document.querySelector(".dark-background")
         saveBtn.addEventListener('click', ()=> {
+            
 
-            if (itemState.title) {
+            if (itemState.title) { 
                 const itemInfo = createItem(itemState.title, parentListID, parentListName, itemState.description, itemState.date, itemState.priority)
                 itemState.id = itemInfo.id
-                itemsContainer.insertAdjacentHTML('afterbegin', insertItem(itemState))
+                itemsContainer.insertAdjacentHTML('afterbegin', insertItemView(itemState))
                 saveData(itemState.id)
-                itemsForm.parentNode.removeChild(itemsForm)
+                closeForm()
             } else {
                 alert("Item must have a title")
             }
         })
-
     } 
 
     // Step 2: acces to each item form
@@ -160,12 +136,10 @@ root.addEventListener('click', (e)=> {
             itemState.items.forEach((item) => {
                 if (item.id == itemId) {
 
-                    
                     root.insertAdjacentHTML("beforebegin", editOptionsView(item))
                     renderChecklists(item.id)
                     saveNewData(item)
-                    closeForm('#item-options, #item-options *')
-
+                    setCloseFormEvent('#item-options, #item-options *')
                 }
             })
         }
@@ -204,22 +178,24 @@ const getListID = (itemID) => {
 const saveNewData = (item) => {
     const editBtn = document.querySelector('#edit-item-btn')
     editBtn.addEventListener('click',()=> {
+        
         itemState.items.forEach((currentItem)=> {
-            console.log(itemState)
+            
            if (item.id == currentItem.id) { 
-                nameInput = document.querySelector('#list-name-input')
-                descriptionInput = document.querySelector('#description')
-                priorityInput = document.querySelector('#priority')
-                dateInput = document.querySelector('.date')
-                currentItem.title = actionToInput(nameInput,"keydown", "title")
-                console.log(currentItem)
-                currentItem.description = actionToInput(descriptionInput,"keydown","description")
-                currentItem.priority = actionToInput(priorityInput,"click","priority")
-                currentItem.date = actionToInput(dateInput,"change","date")
-                console.log(itemState)
-                
+                selectInputs()
+
+                currentItem.title = nameInput.value
+                currentItem.description = descriptionInput.value
+                currentItem.priority = priorityInput.value
+                currentItem.date = dateInput.value
+             
+                persistData()
+                readStorage()
+                updateRenderItems(item.listID)
+                closeForm()
             }
         })
-        
     }) 
 }
+
+

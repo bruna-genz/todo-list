@@ -39,7 +39,7 @@ configRoutes.insertPage(mainView)
 
 const addBoardBtn = document.querySelector('.add-board')
 
-export const closeForm = (elements) => {
+export const setCloseFormEvent = (elements) => {
     const darkBackground = document.querySelector(".dark-background")
     darkBackground.addEventListener('click', (e) => {
         if (!e.target.matches(elements)){
@@ -52,7 +52,7 @@ addBoardBtn.addEventListener('click', () => {
     root.insertAdjacentHTML('afterbegin', projectForm)
     const createProjectForm = document.querySelector('form')
     submitForm(createProjectForm)
-    closeForm('#new-project, #new-project *')
+    setCloseFormEvent('#new-project, #new-project *')
 })
 
 // Step 2: Create new project with step 1 form when enter is pressed
