@@ -48,12 +48,16 @@ export const setCloseFormEvent = (elements) => {
     })
 }
 
-addBoardBtn.addEventListener('click', () => {
-    root.insertAdjacentHTML('afterbegin', projectForm)
-    const createProjectForm = document.querySelector('form')
-    submitForm(createProjectForm)
-    setCloseFormEvent('#new-project, #new-project *')
-})
+const popProjectForm = () => {
+    addBoardBtn.addEventListener('click', () => {
+        root.insertAdjacentHTML('afterbegin', projectForm)
+        const createProjectForm = document.querySelector('form')
+        submitForm(createProjectForm)
+        setCloseFormEvent('#new-project, #new-project *')
+    })
+}
+popProjectForm()
+
 
 // Step 2: Create new project with step 1 form when enter is pressed
 
@@ -96,6 +100,7 @@ const updateRenderProjects = () => {
     state.projectsArray = readStorage()
     boardsContainer.innerHTML = ""
     boardsContainer.insertAdjacentHTML("beforeend", `<a class="add-board">Create a new board</a>`)
+    popProjectForm()
     renderProjects()
 }
 
