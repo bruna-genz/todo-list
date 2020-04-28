@@ -23,7 +23,7 @@ You can find the original description in [The Odin Project](https://www.theodinp
 
 ## Live Demo
 
-[Live Demo Link]()
+[Live Demo Link](https://rawcdn.githack.com/bruna-genz/todo-list/261fbc6ced78de846890be0e6197e822e24b3f57/dist/index.html)
 
 
 ## Authors
