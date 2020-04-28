@@ -1,5 +1,6 @@
 import uniqid from 'uniqid';
 
+// eslint-disable-next-line import/no-mutable-exports
 export let items = [];
 
 export const persistData = () => {
@@ -11,7 +12,6 @@ export const readStorage = () => {
   if (storage) items = storage;
   return items;
 };
-
 
 export const createItem = (title, listID, listName, description, date, priority) => {
   const values = {

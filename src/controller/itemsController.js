@@ -1,7 +1,8 @@
 import { insertItemView } from '../views/itemsView/itemView';
 import { optionsView } from '../views/listsViews/optionsView';
 import { editOptionsView } from '../views/listsViews/editOptionsView';
-import { setCloseFormEvent } from './projectsController.js';
+// eslint-disable-next-line import/no-cycle
+import { setCloseFormEvent } from './projectsController';
 import {
   createItem, readStorage, deleteItemData, persistData,
 } from '../model/ItemModel';
@@ -28,12 +29,13 @@ const selectInputs = () => {
   dateInput = document.querySelector('.date');
 };
 
+// eslint-disable-next-line import/prefer-default-export
 export const renderItems = (listId) => {
   itemState.items = readStorage();
 
   if (itemState.items) {
     itemState.items.forEach((item) => {
-      if (item.listID == listId) {
+      if (item.listID === listId) {
         const listBoard = document.querySelectorAll(`[data-listid='${listId}']`)[0];
         const itemContainer = listBoard.querySelector('.items-container');
         itemContainer.insertAdjacentHTML('afterbegin', insertItemView(item));
@@ -106,12 +108,14 @@ root.addEventListener('click', (e) => {
 
     saveBtn.addEventListener('click', () => {
       if (itemState.title) {
+        // eslint-disable-next-line max-len
         const itemInfo = createItem(itemState.title, parentListID, parentListName, itemState.description, itemState.date, itemState.priority);
         itemState.id = itemInfo.id;
         itemsContainer.insertAdjacentHTML('afterbegin', insertItemView(itemState));
         saveData(itemState.id);
         closeForm();
       } else {
+        // eslint-disable-next-line no-alert
         alert('Item must have a title');
       }
     });
@@ -121,6 +125,7 @@ root.addEventListener('click', (e) => {
   if (e.target.matches('.items, .items *')) {
     // if delete btn clicked: delete item
     if (e.target.matches('.delete-item-btn, .delete-item-btn *')) {
+      // eslint-disable-next-line no-use-before-define
       deleteItem(e);
 
       // otherwise, pop edit form
@@ -129,9 +134,10 @@ root.addEventListener('click', (e) => {
       const itemId = parentList.dataset.itemid;
 
       itemState.items.forEach((item) => {
-        if (item.id == itemId) {
+        if (item.id === itemId) {
           root.insertAdjacentHTML('beforebegin', editOptionsView(item));
           renderChecklists(item.id);
+          // eslint-disable-next-line no-use-before-define
           saveNewData(item);
           setCloseFormEvent('#item-options, #item-options *');
           setDeleteEvent();
@@ -150,13 +156,6 @@ const updateRenderItems = (listID) => {
   renderItems(listID);
 };
 
-const deleteItem = (e) => {
-  const itemID = e.target.closest('.items').dataset.itemid;
-  const listID = getListID(itemID);
-  deleteItemData(itemID);
-  updateRenderItems(listID);
-};
-
 const getListID = (itemID) => {
   let listId;
   itemState.items.forEach((item) => {
@@ -168,13 +167,20 @@ const getListID = (itemID) => {
   return listId;
 };
 
+const deleteItem = (e) => {
+  const itemID = e.target.closest('.items').dataset.itemid;
+  const listID = getListID(itemID);
+  deleteItemData(itemID);
+  updateRenderItems(listID);
+};
+
 // Action: Edit
 
 const saveNewData = (item) => {
   const editBtn = document.querySelector('#edit-item-btn');
   editBtn.addEventListener('click', () => {
     itemState.items.forEach((currentItem) => {
-      if (item.id == currentItem.id) {
+      if (item.id === currentItem.id) {
         selectInputs();
 
         currentItem.title = nameInput.value;

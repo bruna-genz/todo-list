@@ -1,5 +1,4 @@
-import uniqid from 'uniqid';
-
+// eslint-disable-next-line import/no-mutable-exports
 export let checklists = [];
 
 const persistData = () => {
@@ -11,8 +10,6 @@ export const readStorage = () => {
   if (storage) checklists = storage;
   return checklists;
 };
-
-// checklist = [{id: 15654654, title: "checklist1 ", itemID = 61546, checkboxes = [] }, {id: 15654654, title: "checklist2 ", itemID = 61546, checkboxes = []}]
 
 export const createChecklist = (id, title, itemID, checkboxes = null) => {
   const values = {

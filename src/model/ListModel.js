@@ -1,5 +1,6 @@
 import uniqid from 'uniqid';
 
+// eslint-disable-next-line import/no-mutable-exports
 export let lists = [];
 
 const persistData = () => {

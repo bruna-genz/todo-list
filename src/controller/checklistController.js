@@ -5,53 +5,6 @@ import { checklistView } from '../views/checklistViews/checklistView';
 let checklistsArray = [];
 const checklistState = {}; // Current checklist
 
-export const renderChecklists = (itemId) => {
-  checklistState.checklists = readStorage();
-
-  if (checklistState.checklists) {
-    checklistState.checklists.forEach((checklist) => {
-      if (checklist.itemID == itemId) {
-        const checklistContainer = document.querySelector('.checklist-container');
-        checklistContainer.insertAdjacentHTML('beforeend', checklistView(checklist.title, checklist.id));
-        renderSavedCheckboxes(checklist, checklist.id);
-      }
-    });
-  }
-};
-
-export const addChecklist = () => {
-  const checklistContainer = document.querySelector('.checklist-container');
-
-  const title = document.querySelector('#checklist-title').value;
-  const id = uniqid();
-  if (checklistState.title == '') {
-    alert('Checklist must have a name');
-  } else {
-    checklistsArray.push({ title, id });
-    checklistContainer.insertAdjacentHTML('beforeend', checklistView(title, id));
-  }
-
-  setDeleteEvent();
-};
-
-const renderSavedCheckboxes = (checklist, checklistId) => {
-  checklist.checkboxes.forEach((checkbox) => {
-    renderCheckbox(checkbox, checklistId);
-  });
-};
-
-const createCheckbox = (checkbox, id) => {
-  checklistsArray.forEach(list => {
-    if (list.id === id) {
-      if (list.checkboxes) {
-        list.checkboxes.push(checkbox);
-      } else {
-        list.checkboxes = [checkbox];
-      }
-    }
-  });
-};
-
 const renderCheckbox = (label, checklistId) => {
   const checkboxHtml = `<div><input type="checkbox" name="checklist-items"><label for="checklist-items">${label}</label></div>`;
   const checklistForm = document.querySelectorAll(`[data-checklistid=${checklistId}]`)[0];
@@ -60,23 +13,24 @@ const renderCheckbox = (label, checklistId) => {
   checkboxContainer.insertAdjacentHTML('beforeend', checkboxHtml);
 };
 
-export const addCheckbox = (addbtn) => {
-  if (addbtn.matches('#add-checkbox-btn, #add-checkbox-btn *')) {
-    const checklistName = addbtn.previousElementSibling.previousElementSibling.value;
-    const checklistId = addbtn.parentElement.dataset.checklistid;
-    createCheckbox(checklistName, checklistId);
-    renderCheckbox(checklistName, checklistId);
-  }
+const renderSavedCheckboxes = (checklist, checklistId) => {
+  checklist.checkboxes.forEach((checkbox) => {
+    renderCheckbox(checkbox, checklistId);
+  });
 };
 
-export const saveData = (checklistId) => {
-  if (checklistsArray !== []) {
-    checklistsArray.forEach(checklist => {
-      createChecklist(checklist.id, checklist.title, checklistId, checklist.checkboxes);
+export const renderChecklists = (itemId) => {
+  checklistState.checklists = readStorage();
+
+  if (checklistState.checklists) {
+    checklistState.checklists.forEach((checklist) => {
+      if (checklist.itemID === itemId) {
+        const checklistContainer = document.querySelector('.checklist-container');
+        checklistContainer.insertAdjacentHTML('beforeend', checklistView(checklist.title, checklist.id));
+        renderSavedCheckboxes(checklist, checklist.id);
+      }
     });
   }
-
-  checklistsArray = [];
 };
 
 // Action: delete
@@ -96,4 +50,51 @@ export const setDeleteEvent = () => {
       updateRenderChecklists(checklistId, itemId);
     }
   });
+};
+
+export const addChecklist = () => {
+  const checklistContainer = document.querySelector('.checklist-container');
+
+  const title = document.querySelector('#checklist-title').value;
+  const id = uniqid();
+  if (checklistState.title === '') {
+    // eslint-disable-next-line no-alert
+    alert('Checklist must have a name');
+  } else {
+    checklistsArray.push({ title, id });
+    checklistContainer.insertAdjacentHTML('beforeend', checklistView(title, id));
+  }
+
+  setDeleteEvent();
+};
+
+const createCheckbox = (checkbox, id) => {
+  checklistsArray.forEach(list => {
+    if (list.id === id) {
+      if (list.checkboxes) {
+        list.checkboxes.push(checkbox);
+      } else {
+        list.checkboxes = [checkbox];
+      }
+    }
+  });
+};
+
+export const addCheckbox = (addbtn) => {
+  if (addbtn.matches('#add-checkbox-btn, #add-checkbox-btn *')) {
+    const checklistName = addbtn.previousElementSibling.previousElementSibling.value;
+    const checklistId = addbtn.parentElement.dataset.checklistid;
+    createCheckbox(checklistName, checklistId);
+    renderCheckbox(checklistName, checklistId);
+  }
+};
+
+export const saveData = (checklistId) => {
+  if (checklistsArray !== []) {
+    checklistsArray.forEach(checklist => {
+      createChecklist(checklist.id, checklist.title, checklistId, checklist.checkboxes);
+    });
+  }
+
+  checklistsArray = [];
 };

@@ -1,5 +1,4 @@
 import uniqid from 'uniqid';
-// import { persistData, readstorage } from "./db";
 
 let projects = [];
 
