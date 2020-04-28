@@ -1,12 +1,13 @@
 import listFormView from '../views/listsViews/listFormView';
 import { listView } from '../views/listsViews/listView';
 import { createList, readStorage, deleteList } from '../model/ListModel';
+// eslint-disable-next-line import/no-cycle
 import { renderItems } from './itemsController';
-
-// Step 1: Add lists to current dashboard
 
 const listState = {};
 
+// Action: Add lists to current dashboard
+// eslint-disable-next-line import/prefer-default-export
 export const renderLists = (projectId) => {
   listState.lists = readStorage();
 
@@ -20,7 +21,40 @@ export const renderLists = (projectId) => {
     });
   }
 
+  // eslint-disable-next-line no-use-before-define
   setDeleteEvent();
+};
+
+// Action: delete lists
+let listContainer;
+const updateRenderLists = (projectId) => {
+  listState.lists = readStorage();
+  listContainer.innerHTML = '';
+  listContainer.insertAdjacentHTML('afterbegin', '<button class="add-list"><img src="../src/assets/images/plus.svg" alt=""><p>Add list</p></button>');
+  renderLists(projectId);
+};
+
+const getProjectID = (listId) => {
+  let projectId;
+  listState.lists.forEach((list) => {
+    if (list.id === listId) {
+      projectId = list.projectID;
+    }
+  });
+
+  return projectId;
+};
+
+const setDeleteEvent = () => {
+  listContainer = document.querySelector('#list-container');
+  listContainer.addEventListener('click', (e) => {
+    if (e.target.matches('.delete-btn, .delete-btn *')) {
+      const listID = e.target.closest('.list').dataset.listid;
+      const projectId = getProjectID(listID);
+      deleteList(listID);
+      updateRenderLists(projectId);
+    }
+  });
 };
 
 const popForm = (btn) => {
@@ -53,6 +87,7 @@ const addList = (submitBtn, reapearBtn) => {
 
       reapearBtn.insertAdjacentHTML('beforebegin', listView(listState.currentList));
     } else {
+      // eslint-disable-next-line no-alert
       alert('List must have a title');
     }
   });
@@ -73,35 +108,3 @@ root.addEventListener('click', (e) => {
     closeForm(submitBtn, addListBtn);
   }
 });
-
-// Step 2: delete lists
-let listContainer;
-const updateRenderLists = (projectId) => {
-  listState.lists = readStorage();
-  listContainer.innerHTML = '';
-  listContainer.insertAdjacentHTML('afterbegin', '<button class="add-list"><img src="../src/assets/images/plus.svg" alt=""><p>Add list</p></button>');
-  renderLists(projectId);
-};
-
-const setDeleteEvent = () => {
-  listContainer = document.querySelector('#list-container');
-  listContainer.addEventListener('click', (e) => {
-    if (e.target.matches('.delete-btn, .delete-btn *')) {
-      const listID = e.target.closest('.list').dataset.listid;
-      const projectId = getProjectID(listID);
-      deleteList(listID);
-      updateRenderLists(projectId);
-    }
-  });
-};
-
-const getProjectID = (listId) => {
-  let projectId;
-  listState.lists.forEach((list) => {
-    if (list.id === listId) {
-      projectId = list.projectID;
-    }
-  });
-
-  return projectId;
-};
