@@ -35,10 +35,9 @@ const root = document.querySelector('.root')
 
 // 1) Add event listener to Add Item button
 
-const actionToInput = (input,event,item) => {
+const actionToInput = (input, event, item) => {
     input.addEventListener(event, ()=> {
-        itemState[item] = input.value
-        
+        itemState[item] = input.value 
     })
 }
 
