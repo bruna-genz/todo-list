@@ -78,11 +78,11 @@ root.addEventListener('click',(e)=>{
 
 // Step 2: delete lists
 let listContainer
-const updateRenderLists = () => {
+const updateRenderLists = (projectId) => {
     listState.lists = readStorage()
     listContainer.innerHTML = ""
     listContainer.insertAdjacentHTML('afterbegin', `<button class="add-list"><img src="../src/assets/images/plus.svg" alt=""><p>Add list</p></button>`)
-    renderLists(listState.currentList.projectID)
+    renderLists(projectId)
 }
 
 const setDeleteEvent = () => {
@@ -90,8 +90,20 @@ const setDeleteEvent = () => {
     listContainer.addEventListener('click',(e) => {
         if (e.target.matches('.delete-btn, .delete-btn *') ){
             const listID = e.target.closest(".list").dataset.listid
+            const projectId = getProjectID(listID)
             deleteList(listID)
-            updateRenderLists()
+            updateRenderLists(projectId)
         }
     })
+}
+
+const getProjectID = (listId) => {
+    let projectId
+    listState.lists.forEach((list) => {
+        if (list.id === listId) {
+            projectId = list.projectID
+        }
+    })
+
+    return projectId
 }

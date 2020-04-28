@@ -7,6 +7,7 @@ const checklistState = {} // Current checklist
 
 export const renderChecklists  = (itemId) => {
     checklistState.checklists = readStorage()
+    console.log(checklistState)
     
     if ( checklistState.checklists) {
         
@@ -20,18 +21,14 @@ export const renderChecklists  = (itemId) => {
     }
 }
 
-// TODO fix this function
 export const addChecklist = () => {
     const checklistContainer = document.querySelector('.checklist-container')
     
-
-    //! Each time we change properties of checklistState, we modify the items that are already on the array
     const title = document.querySelector('#checklist-title').value
     const id = uniqid()
     if (checklistState.title == "") {
         alert("Checklist must have a name")
     } else {
-        console.log(checklistsArray)
         checklistsArray.push({title, id})
         checklistContainer.insertAdjacentHTML("beforeend", checklistView(title, id))
     }
@@ -53,7 +50,6 @@ const createCheckbox = (checkbox, id) => {
             } else {
                 list.checkboxes = [checkbox]
             }
-            
         }
     })
 }
@@ -82,28 +78,27 @@ export const saveData = (checklistId) => {
         })
     }
 
-    
-
-    
+    checklistsArray = []
 }
 
 // Action: delete 
-const updateRenderChecklists = () => {
-    state.projectsArray = readStorage()
-    checklistContainer.innerHTML = ""
-    renderChecklists()
+const updateRenderChecklists = (checklistId, itemId) => {
+    const checklistForm = document.querySelector(`[data-checklistid=${checklistId}]`)
+    console.log(checklistForm)
+    checklistForm.innerHTML = ""
+    if (itemId) renderChecklists(itemId)
 }
 
-const setDeleteEvent = () => {
+export const setDeleteEvent = () => {
     const checklistContainer = document.querySelector('.checklist-container')
+    const itemId = checklistContainer.dataset.itemid
     checklistContainer.addEventListener('click', (e)=>{
-    if (e.target.matches('#checklist-image, #checklist-image *') ){
-        const checklistId = e.target.closest('#checklist-form').dataset.checklisttid
-        deleteChecklist(checklistId)
-        console.log(checklistState)
-        //updateRenderChecklists()
-    }
-})
+        if (e.target.matches('#checklist-image, #checklist-image *') ){
+            const checklistId = e.target.closest('#checklist-form').dataset.checklistid
+            deleteChecklist(checklistId)
+            updateRenderChecklists(checklistId, itemId)
+        }
+    })
 }
 
 

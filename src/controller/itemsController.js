@@ -3,7 +3,7 @@ import { optionsView} from "../views/listsViews/optionsView";
 import { editOptionsView } from "../views/listsViews/editOptionsView";
 import { setCloseFormEvent } from './projectsController.js';
 import { createItem, readStorage, deleteItemData, persistData } from "../model/ItemModel";
-import { addChecklist, addCheckbox, saveData, renderChecklists } from "./checklistController";
+import { addChecklist, addCheckbox, saveData, renderChecklists, setDeleteEvent } from "./checklistController";
 
 const itemState = {}
 
@@ -73,8 +73,6 @@ root.addEventListener('click', (e)=> {
         const saveBtn = document.querySelector('#save-item-btn')
         const itemsContainer = parentList.querySelector('.items-container')
 
-        // TODO Organize checklist 
-
         // Display checklist title form
         const checklistBtn = document.querySelector("#checklist-btn")
         const checklistTitleForm = document.querySelector("#checklist-title-form")
@@ -87,8 +85,6 @@ root.addEventListener('click', (e)=> {
         checklistCloseButton.addEventListener("click", () => {
             checklistTitleForm.classList.toggle("hidden")
         })
-
-        // TODO add event listeners to add checklist btn    
 
         const submitChecklistbtn = document.querySelector('#checklist-button')
         submitChecklistbtn.addEventListener('click',(e)=>{
@@ -108,7 +104,6 @@ root.addEventListener('click', (e)=> {
         
         saveBtn.addEventListener('click', ()=> {
             
-
             if (itemState.title) { 
                 const itemInfo = createItem(itemState.title, parentListID, parentListName, itemState.description, itemState.date, itemState.priority)
                 itemState.id = itemInfo.id
@@ -140,6 +135,7 @@ root.addEventListener('click', (e)=> {
                     renderChecklists(item.id)
                     saveNewData(item)
                     setCloseFormEvent('#item-options, #item-options *')
+                    setDeleteEvent()
                 }
             })
         }
@@ -197,5 +193,3 @@ const saveNewData = (item) => {
         })
     }) 
 }
-
-

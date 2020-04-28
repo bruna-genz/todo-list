@@ -1,5 +1,4 @@
 export const editOptionsView = (item) => { 
-    console.log(item)
     const optionsHTML = `<div class="dark-background">
         <div id="item-options">
             <div id="left-options">
@@ -11,7 +10,7 @@ export const editOptionsView = (item) => {
                     <h2><img src="../src/assets/images/grid.svg" alt="">Description</h2>
                     <input type="text" id="description" name="description" placeholder="Add detailed description" value="${item.description ? item.description : ""}"><br><br>
                 </form>
-                <div class="checklist-container"></div>
+                <div class="checklist-container" data-itemid="${item.id}"></div>
                 <form id="priority-form">
                     <h2><img src="../src/assets/images/grid.svg" alt="">Activity</h2>
                     <label id="priority-label" for="priority">Priority Level:</label>
@@ -24,16 +23,6 @@ export const editOptionsView = (item) => {
                 </form>
             </div>
             <div id="right-options">
-                <button id="checklist-btn">
-                    <img src="../src/assets/images/tick.svg" alt="">
-                    <p>Checklist</p>
-                </button>
-                <form id="checklist-title-form" class="hidden">
-                    <p>Add Checklist <img id="checklist-close" src="../src/assets/images/close.svg" alt=""></p>
-                    <label for="checklist-title">Title</label><br>
-                    <input type="text" id="checklist-title" value="checklist title" name="checklist-title" autofocus>
-                    <input type="submit" class="save-btn" id="checklist-button" value="Add">
-                </form>
                 <button id="due-date-btn">
                     <div id="title-timebtn">
                         <img src="../src/assets/images/clock.svg" alt="">
