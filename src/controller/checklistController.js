@@ -1,12 +1,6 @@
-import {createChecklist, readStorage } from "../model/ChecklistModel"
+import {createChecklist, readStorage, deleteChecklist } from "../model/ChecklistModel"
 import { checklistView } from "../views/checklistViews/checklistView";
 import uniqid from 'uniqid';
-
-/* checklistState = [
-    {title: aisjais, id : ?, checkbox : []}
-    
-]
-*/
 
 let checklistsArray = []
 const checklistState = {} // Current checklist
@@ -40,7 +34,9 @@ export const addChecklist = () => {
         console.log(checklistsArray)
         checklistsArray.push({title, id})
         checklistContainer.insertAdjacentHTML("beforeend", checklistView(title, id))
-    }    
+    }
+    
+    setDeleteEvent()
 }
 
 const renderSavedCheckboxes = (checklist, checklistId) => {
@@ -86,9 +82,28 @@ export const saveData = (checklistId) => {
         })
     }
 
-    //checklistsArray = []
+    
 
     
+}
+
+// Action: delete 
+const updateRenderChecklists = () => {
+    state.projectsArray = readStorage()
+    checklistContainer.innerHTML = ""
+    renderChecklists()
+}
+
+const setDeleteEvent = () => {
+    const checklistContainer = document.querySelector('.checklist-container')
+    checklistContainer.addEventListener('click', (e)=>{
+    if (e.target.matches('#checklist-image, #checklist-image *') ){
+        const checklistId = e.target.closest('#checklist-form').dataset.checklisttid
+        deleteChecklist(checklistId)
+        console.log(checklistState)
+        //updateRenderChecklists()
+    }
+})
 }
 
 

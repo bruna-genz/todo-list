@@ -27,5 +27,13 @@ export const createChecklist = (id, title, itemID, checkboxes = null) => {
     return values;  
 }
 
+export const deleteChecklist = (checklistId) => {
+    checklists.forEach((checklist, i) => {
+        if (checklist.id === checklistId) {
+            checklists.splice(i, 1)
+            persistData()
+        }
+    })
+}
 
 
