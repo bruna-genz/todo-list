@@ -25,6 +25,11 @@ You can find the original description in [The Odin Project](https://www.theodinp
 
 [Live Demo Link](https://rawcdn.githack.com/bruna-genz/todo-list/261fbc6ced78de846890be0e6197e822e24b3f57/dist/index.html)
 
+## Getting Started
+
+Download or clone the project [here](https://github.com/bruna-genz/restaurant-page.git), then enter in the project's directory from the terminal and run the following comands:
+- `npm i`
+- `npm run start`
 
 ## Authors
 
