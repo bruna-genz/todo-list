@@ -1,0 +1,87 @@
+nav {
+    --navColor: #026AA7; 
+    background-color: var(--navColor);
+    display: flex;
+    justify-content: space-between;
+    height: 2.3em;
+    div {
+        display: flex;
+        align-items: center;
+        .home-link {
+            display: flex;
+            div {
+                padding: 0 !important;
+            }
+            input {
+                background-size: contain;
+                background-repeat: no-repeat;
+                border: none;
+                height: 22px;
+                filter: invert(1);
+                margin: 3px;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            #home-link {
+                background-image: url(../images/home-run.svg);
+                width: 20px;
+            }
+            #boards-link {
+                background-image: url(../images/to-do-list.svg);
+                width: 84px;
+            }
+        }
+        
+        div {
+            &:hover {
+                cursor: pointer;
+                background-color: rgba(218, 218, 218, 0.493);
+            }
+            background-color: rgba(218, 218, 218, 0.377);
+            padding: 5px;
+            margin: 2px;
+            border-radius: 5px;
+            
+            p, h1 {
+                margin-left: 5px;
+                font-size: 13px;
+                color: white;
+            }
+            h1 {
+                font-family: 'Dancing Script', cursive;
+                font-size: 19px;
+                color: rgba(218, 218, 218, 0.377);
+                &:hover {
+                    color: rgba(255, 255, 255, 0.555);
+                }
+            }
+            input {
+                background-color: rgba(255, 255, 255, 0);
+                border: none;
+            }
+        }
+        
+        img {
+            height: 18px;
+            width: 18px;
+            filter: invert(1);
+            
+        }
+        #logo {
+            background-color: rgba(0, 0, 0, 0);
+            position: relative;
+            left: -60%;
+            img {
+                filter: invert(86%) sepia(8%) saturate(7%) hue-rotate(46deg) brightness(100%) contrast(96%);
+            }
+            
+            
+
+        }
+    }
+}
+
+.green-nav {
+    --navColor: #40a35b;
+}
