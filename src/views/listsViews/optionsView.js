@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/prefer-default-export
 export const optionsView = (listName) => {
   const optionsHTML = `<div class="dark-background">
         <div id="item-options">

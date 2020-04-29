@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/prefer-default-export
 export const editOptionsView = (item) => {
   const optionsHTML = `<div class="dark-background">
         <div id="item-options">
@@ -15,10 +16,10 @@ export const editOptionsView = (item) => {
                     <h2><img src="../src/assets/images/grid.svg" alt="">Activity</h2>
                     <label id="priority-label" for="priority">Priority Level:</label>
                     <select id="priority" name="priority">
-                        <option ${item.priority == 'urgent' ? "selected='selected'" : ''} value="urgent">Urgent</option>
-                        <option ${item.priority == 'veryimportant' ? "selected='selected'" : ''} value="very important">Very important</option>
-                        <option ${item.priority == 'important' ? "selected='selected'" : ''} value="important">Important</option>
-                        <option ${item.priority == 'normal' ? "selected='selected'" : ''} value="normal">Normal</option>
+                        <option ${item.priority === 'urgent' ? "selected='selected'" : ''} value="urgent">Urgent</option>
+                        <option ${item.priority === 'veryimportant' ? "selected='selected'" : ''} value="very important">Very important</option>
+                        <option ${item.priority === 'important' ? "selected='selected'" : ''} value="important">Important</option>
+                        <option ${item.priority === 'normal' ? "selected='selected'" : ''} value="normal">Normal</option>
                     </select>
                 </form>
             </div>

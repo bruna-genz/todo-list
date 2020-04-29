@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/prefer-default-export
 export const dashboardView = (currentProject) => {
   const dashboardHtml = `
 <div class="to-dos">

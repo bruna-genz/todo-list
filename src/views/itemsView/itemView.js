@@ -1,5 +1,6 @@
 import { format } from 'date-fns';
 
+// eslint-disable-next-line import/prefer-default-export
 export const insertItemView = (item) => {
   let splitDate;
   let date;
@@ -16,7 +17,7 @@ export const insertItemView = (item) => {
   return `<div class="items" data-itemid="${item.id}">
                 <button class="priority ${item.priority}"></button>
                 <p>${item.title}</p>
-                ${date == '' ? '' : dueDate}
+                ${date === '' ? '' : dueDate}
                 <button class="delete-item-btn"><img src="../src/assets/images/bin.svg" alt="menu icon" class="nav-icon"></button>
             </div>
             

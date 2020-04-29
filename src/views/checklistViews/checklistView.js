@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/prefer-default-export
 export const checklistView = (title, id) => {
   const checklistHtml = `
     <form id="checklist-form" data-checklistID=${id}>
