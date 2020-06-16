@@ -44,6 +44,7 @@ Download or clone the project [here](https://github.com/bruna-genz/restaurant-pa
 - Github: [@bruna-genz](https://github.com/bruna-genz)
 - Twitter: [@Bruna_GK](https://twitter.com/Bruna_GK)
 - Linkedin: [Bruna Genz](https://www.linkedin.com/in/brunagenz/)
+- Email: brunagenz92@gmail.com
 
 ## 🤝 Contributing
 
