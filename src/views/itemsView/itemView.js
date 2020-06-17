@@ -12,13 +12,13 @@ export const insertItemView = (item) => {
   }
 
 
-  const dueDate = `<button class="due-date"><img src="../src/assets/images/clock.svg" alt="">${date}</button>`;
+  const dueDate = `<button class="due-date"><img src="assets/images/clock.svg" alt="">${date}</button>`;
 
   return `<div class="items" data-itemid="${item.id}">
                 <button class="priority ${item.priority}"></button>
                 <p>${item.title}</p>
                 ${date === '' ? '' : dueDate}
-                <button class="delete-item-btn"><img src="../src/assets/images/bin.svg" alt="menu icon" class="nav-icon"></button>
+                <button class="delete-item-btn"><img src="assets/images/bin.svg" alt="menu icon" class="nav-icon"></button>
             </div>
             
             `;

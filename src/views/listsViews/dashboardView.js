@@ -11,7 +11,7 @@ export const dashboardView = (currentProject) => {
      
      
      <button class="add-list">
-        <img src="../src/assets/images/plus.svg" alt="">
+        <img src="assets/images/plus.svg" alt="">
         <p>Add list</p>
      </button>
 </div>

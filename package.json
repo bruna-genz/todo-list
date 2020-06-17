@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/bruna-genz/todo-list#readme",
   "devDependencies": {
+    "copy-webpack-plugin": "^6.0.2",
     "css-loader": "^3.5.2",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
