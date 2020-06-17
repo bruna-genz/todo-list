@@ -5,15 +5,6 @@ export const dashboardView = (currentProject) => {
 <div id="sub-nav">
     <div>
         <div id="title" data-projectID=${currentProject.id}>${currentProject.title}</div>
-        <div><img src="../src/assets/images/star.svg" alt=""></div>
-        <div>Personal</div>
-        <div><img src="../src/assets/images/lock.svg" alt=""><p>Público</p></div>
-        <div id="user"><img src="../src/assets/images/user.svg" alt=""></div>
-        <div>Invitar</div>
-    </div>
-    <div>
-        <div><img src="../src/assets/images/bell.svg" alt=""><p>Buttler</p></div>
-        <div><img src="../src/assets/images/grid.svg" alt=""><p>Show menu</p></div>
     </div>
 </div>
 <div id="list-container">
