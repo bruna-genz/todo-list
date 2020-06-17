@@ -27,7 +27,7 @@ The original description can be found at [The Odin Project](https://www.theodinp
 
 ## Live Demo
 
-[Live Demo Link](https://rawcdn.githack.com/bruna-genz/todo-list/261fbc6ced78de846890be0e6197e822e24b3f57/dist/index.html)
+[Live Demo Link](https://supertodo.netlify.app/)
 
 ## Built With
 
@@ -41,7 +41,7 @@ The original description can be found at [The Odin Project](https://www.theodinp
 
 - ### Online version:
 
-Access this [link](https://rawcdn.githack.com/bruna-genz/todo-list/261fbc6ced78de846890be0e6197e822e24b3f57/dist/index.html) and start by creating a new board.
+Access this [link](https://supertodo.netlify.app/) and start by creating a new board.
 
 - ### Local version:
 
