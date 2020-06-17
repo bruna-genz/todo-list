@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
-- [About](https://github.com/bruna-genz/todo-list#built-with)
+- [About](https://github.com/bruna-genz/todo-list#about)
 - [Preview](https://github.com/bruna-genz/todo-list#preview)
 - [Live Demo](https://github.com/bruna-genz/todo-list#live-demo)
 - [Built with](https://github.com/bruna-genz/todo-list#built-with)
